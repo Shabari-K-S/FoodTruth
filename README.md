@@ -39,7 +39,7 @@ FoodTruth is a modern, privacy-focused food scanning application built with Expo
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/FoodTruth.git
+   git clone https://github.com/Shabari-K-S/FoodTruth.git
    cd FoodTruth
    ```
 
@@ -51,6 +51,8 @@ FoodTruth is a modern, privacy-focused food scanning application built with Expo
 3. **Start the development server**
    ```bash
    npx expo start
+     or 
+   npx expo start --tunnel
    ```
 
 4. **Run the app**
@@ -83,7 +85,3 @@ The app follows a "Pure Clarity" design philosophy:
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
