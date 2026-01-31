@@ -1,0 +1,5566 @@
+{
+    "metadata": {
+        "source": "CAC/GL 36-1989 (Codex Alimentarius)",
+        "title": "International Numbering System for Food Additives",
+        "version": "2015",
+        "total_entries": 400
+    },
+    "additives": {
+        "100": {
+            "name": "Curcumins",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "100(i)": "Curcumin",
+                "100(ii)": "Turmeric"
+            }
+        },
+        "101": {
+            "name": "Riboflavins",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "101(i)": "Riboflavin, synthetic",
+                "101(ii)": "Riboflavin 5'-phosphate sodium",
+                "101(iii)": "Riboflavin from Bacillus subtilis"
+            }
+        },
+        "102": {
+            "name": "Tartrazine",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "103": {
+            "name": "Alkanet",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "104": {
+            "name": "Quinoline yellow",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "105": {
+            "name": "Carthamus yellow",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "107": {
+            "name": "Yellow 2G",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "110": {
+            "name": "Sunset yellow FCF",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "120": {
+            "name": "Carmines",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "121": {
+            "name": "Citrus red No. 2",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "122": {
+            "name": "Azorubine (Carmoisine)",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "123": {
+            "name": "Amaranth",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "124": {
+            "name": "Ponceau 4R (Cochineal red A)",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "125": {
+            "name": "Ponceau SX",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "127": {
+            "name": "Erythrosine",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "128": {
+            "name": "Red 2G",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "129": {
+            "name": "Allura red AC",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "130": {
+            "name": "Manascorubin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "131": {
+            "name": "Patent blue V",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "132": {
+            "name": "Indigotine (Indigo carmine)",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "133": {
+            "name": "Brilliant blue FCF",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "140": {
+            "name": "Chlorophylls",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "141": {
+            "name": "Chlorophylls and chlorophyllins, copper complexes",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "141(i)": "Chlorophylls, copper complexes",
+                "141(ii)": "Chlorophyllins, copper complexes, potassium and sodium salts"
+            }
+        },
+        "142": {
+            "name": "Green S",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "143": {
+            "name": "Fast Green FCF",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "150": {
+            "name": "Caramels",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "150a": "Caramel I – plain caramel",
+                "150b": "Caramel II - sulfite caramel",
+                "150c": "Caramel III - ammonia caramel",
+                "150d": "Caramel IV - sulfite ammonia caramel"
+            }
+        },
+        "151": {
+            "name": "Brilliant black (Black PN)",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "152": {
+            "name": "Carbon black (Hydrocarbon)",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "153": {
+            "name": "Vegetable carbon",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "154": {
+            "name": "Brown FK",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "155": {
+            "name": "Brown HT",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "160a": {
+            "name": "Carotenes",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "160a(i)": "Carotenes, beta-, synthetic",
+                "160a(ii)": "Carotenes, beta-, vegetable",
+                "160a(iii)": "Carotenes, beta-, Blakeslea trispora",
+                "160a(iv)": "Carotenes, beta-, algae"
+            }
+        },
+        "160b": {
+            "name": "Annatto extracts",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "160b(i)": "Annatto extracts, bixin-based",
+                "160b(ii)": "Annatto extracts, norbixin-based"
+            }
+        },
+        "160c": {
+            "name": "Paprika",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "160c(i)": "Paprika oleoresin",
+                "160c(ii)": "Paprika extract"
+            }
+        },
+        "160d": {
+            "name": "Lycopenes",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "160d(i)": "Lycopene, synthetic",
+                "160d(ii)": "Lycopene, tomato",
+                "160d(iii)": "Lycopene, Blakeslea trispora"
+            }
+        },
+        "160e": {
+            "name": "Carotenal, beta-apo-8'",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "160f": {
+            "name": "Carotenoic acid, ethyl ester, beta-apo-8'-",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161a": {
+            "name": "Flavoxanthin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161b": {
+            "name": "Luteins",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "161b(i)": "Lutein from Tagetes erecta",
+                "161b(ii)": "Tagetes extract",
+                "161b(iii)": "Lutein esters from Tagetes erecta"
+            }
+        },
+        "161c": {
+            "name": "Kryptoxanthin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161d": {
+            "name": "Rubixanthin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161e": {
+            "name": "Violoxanthin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161f": {
+            "name": "Rhodoxanthin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161g": {
+            "name": "Canthaxanthin",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "161h": {
+            "name": "Zeaxanthins",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "161h(i)": "Zeaxanthin, synthetic",
+                "161h(ii)": "Zeaxanthin-rich extract from Tagetes erecta"
+            }
+        },
+        "162": {
+            "name": "Beet red",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "163": {
+            "name": "Anthocyanins",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "163(ii)": "Grape skin extract",
+                "163(iii)": "Blackcurrant extract",
+                "163(iv)": "Purple corn colour",
+                "163(v)": "Red cabbage colour",
+                "163(vi)": "Black carrot extract"
+            }
+        },
+        "164": {
+            "name": "Gardenia yellow",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "165": {
+            "name": "Gardenia blue",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "166": {
+            "name": "Sandalwood",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "170": {
+            "name": "Calcium carbonates",
+            "functional_class": [
+                "Acidity regulator",
+                "Anticaking agent",
+                "Colour",
+                "Firming agent",
+                "Flour treatment agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "anticaking agent",
+                "surface colourant",
+                "firming agent",
+                "dough conditioner",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "170(i)": "Calcium carbonate",
+                "170(ii)": "Calcium hydrogen carbonate"
+            }
+        },
+        "171": {
+            "name": "Titanium dioxide",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "172": {
+            "name": "Iron oxides",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ],
+            "subtypes": {
+                "172(i)": "Iron oxide, black",
+                "172(ii)": "Iron oxide, red",
+                "172(iii)": "Iron oxide, yellow"
+            }
+        },
+        "173": {
+            "name": "Aluminium powder",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "surface colourant"
+            ]
+        },
+        "174": {
+            "name": "Silver",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "175": {
+            "name": "Gold, metallic",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "176": {
+            "name": "Potassium aluminium silicate-based pearlescent pigments (PAS-BPP)",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "180": {
+            "name": "Lithol rubine BK",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "181": {
+            "name": "Tannic acid (Tannins)",
+            "functional_class": [
+                "Colour",
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "colour",
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "182": {
+            "name": "Orchil",
+            "functional_class": [
+                "Colour"
+            ],
+            "purpose": [
+                "colour"
+            ]
+        },
+        "200": {
+            "name": "Sorbic acid",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "201": {
+            "name": "Sodium sorbate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "202": {
+            "name": "Potassium sorbate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "203": {
+            "name": "Calcium sorbate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "209": {
+            "name": "Heptyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "210": {
+            "name": "Benzoic acid",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "211": {
+            "name": "Sodium benzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "212": {
+            "name": "Potassium benzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "213": {
+            "name": "Calcium benzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "214": {
+            "name": "Ethyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "215": {
+            "name": "Sodium ethyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "216": {
+            "name": "Propyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "217": {
+            "name": "Sodium propyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "218": {
+            "name": "Methyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "219": {
+            "name": "Sodium methyl para-hydroxybenzoate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "220": {
+            "name": "Sulfur dioxide",
+            "functional_class": [
+                "Antioxidant",
+                "Bleaching agent",
+                "Flour treatment agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "bleaching agent",
+                "flour treatment agent",
+                "preservative"
+            ]
+        },
+        "221": {
+            "name": "Sodium sulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Bleaching agent",
+                "Flour treatment agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "bleaching agent",
+                "flour treatment agent",
+                "preservative"
+            ]
+        },
+        "222": {
+            "name": "Sodium hydrogen sulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "preservative"
+            ]
+        },
+        "223": {
+            "name": "Sodium metabisulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Bleaching agent",
+                "Flour treatment agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "bleaching agent",
+                "flour treatment agent",
+                "preservative"
+            ]
+        },
+        "224": {
+            "name": "Potassium metabisulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Bleaching agent",
+                "Flour treatment agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "bleaching agent",
+                "flour treatment agent",
+                "preservative"
+            ]
+        },
+        "225": {
+            "name": "Potassium sulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "preservative"
+            ]
+        },
+        "226": {
+            "name": "Calcium sulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "preservative"
+            ]
+        },
+        "227": {
+            "name": "Calcium hydrogen sulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "preservative"
+            ]
+        },
+        "228": {
+            "name": "Potassium bisulfite",
+            "functional_class": [
+                "Antioxidant",
+                "Preservative"
+            ],
+            "purpose": [
+                "antioxidant",
+                "preservative"
+            ]
+        },
+        "230": {
+            "name": "Diphenyl",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "231": {
+            "name": "Ortho-phenylphenol",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "232": {
+            "name": "Sodium ortho-phenylphenol",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "233": {
+            "name": "Thiabendazole",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "234": {
+            "name": "Nisin",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "235": {
+            "name": "Natamycin (Pimaricin)",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "236": {
+            "name": "Formic acid",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "237": {
+            "name": "Sodium formate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "238": {
+            "name": "Calcium formate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "239": {
+            "name": "Hexamethylene tetramine",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "240": {
+            "name": "Formaldehyde",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "241": {
+            "name": "Gum guaicum",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "242": {
+            "name": "Dimethyl dicarbonate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "243": {
+            "name": "Lauric arginate ethyl ester",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "antimicrobial preservative"
+            ]
+        },
+        "249": {
+            "name": "Potassium nitrite",
+            "functional_class": [
+                "Colour retention agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "colour fixative",
+                "preservative"
+            ]
+        },
+        "250": {
+            "name": "Sodium nitrite",
+            "functional_class": [
+                "Colour retention agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "colour fixative",
+                "preservative"
+            ]
+        },
+        "251": {
+            "name": "Sodium nitrate",
+            "functional_class": [
+                "Colour retention agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "colour fixative",
+                "preservative"
+            ]
+        },
+        "252": {
+            "name": "Potassium nitrate",
+            "functional_class": [
+                "Colour retention agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "colour fixative",
+                "preservative"
+            ]
+        },
+        "260": {
+            "name": "Acetic acid, glacial",
+            "functional_class": [
+                "Acidity regulator",
+                "Preservative"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "preservative"
+            ]
+        },
+        "261": {
+            "name": "Potassium acetates",
+            "functional_class": [
+                "Acidity regulator",
+                "Preservative"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "preservative"
+            ],
+            "subtypes": {
+                "261(i)": "Potassium acetate",
+                "261(ii)": "Potassium diacetate"
+            }
+        },
+        "262": {
+            "name": "Sodium acetates",
+            "functional_class": [
+                "Acidity regulator",
+                "Preservative",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "preservative",
+                "sequestrant"
+            ],
+            "subtypes": {
+                "262(i)": "Sodium acetate",
+                "262(ii)": "Sodium diacetate"
+            }
+        },
+        "263": {
+            "name": "Calcium acetate",
+            "functional_class": [
+                "Acidity regulator",
+                "Preservative",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "preservative",
+                "stabilizer"
+            ]
+        },
+        "264": {
+            "name": "Ammonium acetate",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "265": {
+            "name": "Dehydroacetic acid",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "266": {
+            "name": "Sodium dehydroacetate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "270": {
+            "name": "Lactic acid, L-, D- and DL-",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "280": {
+            "name": "Propionic acid",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "281": {
+            "name": "Sodium propionate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "282": {
+            "name": "Calcium propionate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "283": {
+            "name": "Potassium propionate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "290": {
+            "name": "Carbon dioxide",
+            "functional_class": [
+                "Carbonating agent",
+                "Foaming agent",
+                "Packaging gas",
+                "Preservative",
+                "Propellant"
+            ],
+            "purpose": [
+                "carbonating agent",
+                "foaming agent",
+                "packaging gas",
+                "preservative",
+                "propellant"
+            ]
+        },
+        "300": {
+            "name": "Ascorbic acid, L-",
+            "functional_class": [
+                "Acidity regulator",
+                "Antioxidant",
+                "Flour treatment agent",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "antioxidant",
+                "flour treatment agent",
+                "sequestrant"
+            ]
+        },
+        "301": {
+            "name": "Sodium ascorbate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "302": {
+            "name": "Calcium ascorbate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "303": {
+            "name": "Potassium ascorbate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "304": {
+            "name": "Ascorbyl palmitate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "305": {
+            "name": "Ascorbyl stearate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "307": {
+            "name": "Tocopherols",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ],
+            "subtypes": {
+                "307a": "Tocopherol, d-alpha-",
+                "307b": "Tocopherol concentrate, mixed",
+                "307c": "Tocopherol, dl-alpha-"
+            }
+        },
+        "308": {
+            "name": "Tocopherol, gamma-, synthetic",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "309": {
+            "name": "Tocopherol, delta-, synthetic",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "310": {
+            "name": "Propyl gallate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "311": {
+            "name": "Octyl gallate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "312": {
+            "name": "Dodecyl gallate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "313": {
+            "name": "Ethyl gallate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "314": {
+            "name": "Guaiac resin",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "315": {
+            "name": "Erythorbic acid (Isoascorbic acid)",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "316": {
+            "name": "Sodium erythorbate (Sodium isoascorbate)",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "317": {
+            "name": "Potassium isoascorbate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "318": {
+            "name": "Calcium isoascorbate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "319": {
+            "name": "Tertiary butylhydroquinone",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "320": {
+            "name": "Butylated hydroxyanisole",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "321": {
+            "name": "Butylated hydroxytoluene",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "322": {
+            "name": "Lecithins",
+            "functional_class": [
+                "Antioxidant",
+                "Emulsifier"
+            ],
+            "purpose": [
+                "antioxidant",
+                "emulsifier"
+            ],
+            "subtypes": {
+                "322(i)": "Lecithin",
+                "322(ii)": "Lecithin, partially hydrolysed"
+            }
+        },
+        "323": {
+            "name": "Anoxomer",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "324": {
+            "name": "Ethoxyquin",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "325": {
+            "name": "Sodium lactate",
+            "functional_class": [
+                "Acidity regulator",
+                "Antioxidant",
+                "Bulking agent",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "antioxidant synergist",
+                "bulking agent",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant",
+                "bodying agent"
+            ]
+        },
+        "326": {
+            "name": "Potassium lactate",
+            "functional_class": [
+                "Acidity regulator",
+                "Antioxidant",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "antioxidant synergist",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant"
+            ]
+        },
+        "327": {
+            "name": "Calcium lactate",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifying salt",
+                "Firming agent",
+                "Flour treatment agent",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifying salt",
+                "firming agent",
+                "flour treatment agent",
+                "thickener"
+            ]
+        },
+        "328": {
+            "name": "Ammonium lactate",
+            "functional_class": [
+                "Acidity regulator",
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "flour treatment agent"
+            ]
+        },
+        "329": {
+            "name": "Magnesium lactate, DL-",
+            "functional_class": [
+                "Acidity regulator",
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "flour treatment agent"
+            ]
+        },
+        "330": {
+            "name": "Citric acid",
+            "functional_class": [
+                "Acidity regulator",
+                "Antioxidant",
+                "Colour retention agent",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "antioxidant",
+                "colour retention agent",
+                "sequestrant"
+            ]
+        },
+        "331": {
+            "name": "Sodium citrates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "sequestrant",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "331(i)": "Sodium dihydrogen citrate",
+                "331(ii)": "Disodium monohydrogen citrate",
+                "331(iii)": "Trisodium citrate"
+            }
+        },
+        "332": {
+            "name": "Potassium citrates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifying salt",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifying salt",
+                "sequestrant",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "332(i)": "Potassium dihydrogen citrate",
+                "332(ii)": "Tripotassium citrate"
+            }
+        },
+        "333": {
+            "name": "Calcium citrates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifying salt",
+                "Firming agent",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifying salt",
+                "firming agent",
+                "sequestrant",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "333(i)": "Monocalcium citrate",
+                "333(ii)": "Dicalcium citrate",
+                "333(iii)": "Tricalcium citrate"
+            }
+        },
+        "334": {
+            "name": "Tartaric acid, L(+)-",
+            "functional_class": [
+                "Acidity regulator",
+                "Antioxidant",
+                "Flavour enhancer",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "antioxidant synergist",
+                "flavour synergist",
+                "sequestrant"
+            ]
+        },
+        "335": {
+            "name": "Sodium tartrates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifying salt",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifying salt",
+                "sequestrant",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "335(i)": "Monosodium tartrate",
+                "335(ii)": "Sodium L(+)-tartrate"
+            }
+        },
+        "336": {
+            "name": "Potassium tartrates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifying salt",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifying salt",
+                "sequestrant",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "336(i)": "Monopotassium tartrate",
+                "336(ii)": "Dipotassium tartrate"
+            }
+        },
+        "337": {
+            "name": "Potassium sodium L(+)-tartrate",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifying salt",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifying salt",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "338": {
+            "name": "Phosphoric acid",
+            "functional_class": [
+                "Acidity regulator",
+                "Antioxidant",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "antioxidant synergist",
+                "sequestrant"
+            ]
+        },
+        "339": {
+            "name": "Sodium phosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant",
+                "Raising agent",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant",
+                "raising agent",
+                "sequestrant",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "339(i)": "Sodium dihydrogen phosphate",
+                "339(ii)": "Disodium hydrogen phosphate",
+                "339(iii)": "Trisodium phosphate"
+            }
+        },
+        "340": {
+            "name": "Potassium phosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "340(i)": "Potassium dihydrogen phosphate",
+                "340(ii)": "Dipotassium hydrogen phosphate",
+                "340(iii)": "Tripotassium phosphate"
+            }
+        },
+        "341": {
+            "name": "Calcium phosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Anticaking agent",
+                "Emulsifying salt",
+                "Firming agent",
+                "Flour treatment agent",
+                "Humectant",
+                "Raising agent",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "anticaking agent",
+                "emulsifying salt",
+                "firming agent",
+                "flour treatment agent",
+                "humectant",
+                "raising agent",
+                "sequestrant",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "341(i)": "Calcium dihydrogen phosphate",
+                "341(ii)": "Calcium hydrogen phosphate",
+                "341(iii)": "Tricalcium phosphate"
+            }
+        },
+        "342": {
+            "name": "Ammonium phosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Flour treatment agent",
+                "Raising agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "flour treatment agent",
+                "raising agent",
+                "stabilizer",
+                "thickener"
+            ],
+            "subtypes": {
+                "342(i)": "Ammonium dihydrogen phosphate",
+                "342(ii)": "Diammonium hydrogen phosphate"
+            }
+        },
+        "343": {
+            "name": "Magnesium phosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Anticaking agent",
+                "Emulsifying salt",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "anticaking agent",
+                "emulsifying salt",
+                "stabilizer",
+                "thickener"
+            ],
+            "subtypes": {
+                "343(i)": "Magnesium dihydrogen phosphate",
+                "343(ii)": "Magnesium hydrogen phosphate",
+                "343(iii)": "Trimagnesium phosphate"
+            }
+        },
+        "344": {
+            "name": "Lecithin citrate",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "345": {
+            "name": "Magnesium citrate",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "349": {
+            "name": "Ammonium malate",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "350": {
+            "name": "Sodium malates",
+            "functional_class": [
+                "Acidity regulator",
+                "Humectant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "humectant"
+            ],
+            "subtypes": {
+                "350(i)": "Sodium hydrogen DL-malate",
+                "350(ii)": "Sodium DL-malate"
+            }
+        },
+        "351": {
+            "name": "Potassium malates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ],
+            "subtypes": {
+                "351(i)": "Potassium hydrogen malate",
+                "351(ii)": "Potassium malate"
+            }
+        },
+        "352": {
+            "name": "Calcium malates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ],
+            "subtypes": {
+                "352(i)": "Calcium hydrogen malate",
+                "352(ii)": "Calcium malate, D,L-"
+            }
+        },
+        "353": {
+            "name": "Metatartaric acid",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "354": {
+            "name": "Calcium tartrate, DL-",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "355": {
+            "name": "Adipic acid",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "356": {
+            "name": "Sodium adipates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "357": {
+            "name": "Potassium adipates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "359": {
+            "name": "Ammonium adipates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "363": {
+            "name": "Succinic acid",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "364": {
+            "name": "Sodium succinates",
+            "functional_class": [
+                "Acidity regulator",
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "flavour enhancer"
+            ],
+            "subtypes": {
+                "364(i)": "Monosodium succinate",
+                "364(ii)": "Disodium succinate"
+            }
+        },
+        "365": {
+            "name": "Sodium fumarates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "366": {
+            "name": "Potassium fumarates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "367": {
+            "name": "Calcium fumarates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "368": {
+            "name": "Ammonium fumarate",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "370": {
+            "name": "Heptonolactone, 1,4-",
+            "functional_class": [
+                "Acidity regulator",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "sequestrant"
+            ]
+        },
+        "375": {
+            "name": "Nicotinic acid",
+            "functional_class": [
+                "Colour retention agent"
+            ],
+            "purpose": [
+                "colour retention agent"
+            ]
+        },
+        "380": {
+            "name": "Triammonium citrate",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "381": {
+            "name": "Ferric ammonium citrate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "383": {
+            "name": "Calcium glycerophosphate",
+            "functional_class": [
+                "Antioxidant",
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "antioxidant",
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "384": {
+            "name": "Isopropyl citrates",
+            "functional_class": [
+                "Antioxidant",
+                "Preservative",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "antioxidant",
+                "preservative",
+                "sequestrant"
+            ]
+        },
+        "385": {
+            "name": "Calcium disodium ethylenediaminetetraacetate",
+            "functional_class": [
+                "Antioxidant",
+                "Colour retention agent",
+                "Preservative",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "antioxidant",
+                "colour stabilizer",
+                "preservative",
+                "sequestrant"
+            ]
+        },
+        "386": {
+            "name": "Disodium ethylenediaminetetraacetate",
+            "functional_class": [
+                "Antioxidant",
+                "Colour retention agent",
+                "Preservative",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "antioxidant",
+                "colour stabilizer",
+                "preservative",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "387": {
+            "name": "Oxystearin",
+            "functional_class": [
+                "Antioxidant",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "antioxidant",
+                "sequestrant"
+            ]
+        },
+        "388": {
+            "name": "Thiodipropionic acid",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "389": {
+            "name": "Dilauryl thiodipropionate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "390": {
+            "name": "Distearyl thiodipropionate",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "391": {
+            "name": "Phytic acid",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "392": {
+            "name": "Rosemary extract",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "399": {
+            "name": "Calcium lactobionate",
+            "functional_class": [
+                "Stabilizer"
+            ],
+            "purpose": [
+                "stabilizer"
+            ]
+        },
+        "400": {
+            "name": "Alginic acid",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Foaming agent",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "foaming agent",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "401": {
+            "name": "Sodium alginate",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Foaming agent",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "foaming agent",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "402": {
+            "name": "Potassium alginate",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Foaming agent",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "foaming agent",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "403": {
+            "name": "Ammonium alginate",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Foaming agent",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "foaming agent",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "404": {
+            "name": "Calcium alginate",
+            "functional_class": [
+                "Antifoaming agent",
+                "Bulking agent",
+                "Carrier",
+                "Foaming agent",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "antifoaming agent",
+                "bulking agent",
+                "carrier",
+                "foaming agent",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "405": {
+            "name": "Propylene glycol alginate",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Foaming agent",
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "foaming agent",
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "406": {
+            "name": "Agar",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "407": {
+            "name": "Carrageenan",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "407a": {
+            "name": "Processed euchema seaweed (PES)",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "408": {
+            "name": "Bakers yeast glycan",
+            "functional_class": [
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "409": {
+            "name": "Arabinogalactan",
+            "functional_class": [
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "410": {
+            "name": "Carob bean gum",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "411": {
+            "name": "Oat gum",
+            "functional_class": [
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "412": {
+            "name": "Guar gum",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "413": {
+            "name": "Tragacanth gum",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "414": {
+            "name": "Gum arabic (Acacia gum)",
+            "functional_class": [
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "glazing agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "415": {
+            "name": "Xanthan gum",
+            "functional_class": [
+                "Emulsifier",
+                "Foaming agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "foaming agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "416": {
+            "name": "Karaya gum",
+            "functional_class": [
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "417": {
+            "name": "Tara gum",
+            "functional_class": [
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "418": {
+            "name": "Gellan gum",
+            "functional_class": [
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "419": {
+            "name": "Gum ghatti",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "420": {
+            "name": "Sorbitols",
+            "functional_class": [
+                "Bulking agent",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Sweetener",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "sweetener",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "420(i)": "Sorbitol",
+                "420(ii)": "Sorbitol syrup"
+            }
+        },
+        "421": {
+            "name": "Mannitol",
+            "functional_class": [
+                "Anticaking agent",
+                "Bulking agent",
+                "Humectant",
+                "Stabilizer",
+                "Sweetener",
+                "Thickener"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "bulking agent",
+                "humectant",
+                "stabilizer",
+                "sweetener",
+                "texturizing agent"
+            ]
+        },
+        "422": {
+            "name": "Glycerol",
+            "functional_class": [
+                "Humectant",
+                "Thickener"
+            ],
+            "purpose": [
+                "humectant",
+                "bodying agent"
+            ]
+        },
+        "423": {
+            "name": "Octenyl succinic acid (OSA) modified gum arabic",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "424": {
+            "name": "Curdlan",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Firming agent",
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "emulsifier",
+                "firming agent",
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "425": {
+            "name": "Konjac flour",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "emulsifier",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "426": {
+            "name": "Soybean hemicellulose",
+            "functional_class": [
+                "Anticaking agent",
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "428": {
+            "name": "Gelatin",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Gelling agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "emulsifier",
+                "gelling agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "429": {
+            "name": "Peptones",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "430": {
+            "name": "Polyoxyethylene (8) stearate",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "431": {
+            "name": "Polyoxyethylene (40) stearate",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "432": {
+            "name": "Polyoxyethylene (20) sorbitan monolaurate",
+            "functional_class": [
+                "Dispersing agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "dispersing agent",
+                "emulsifier",
+                "emulsion stabilizer"
+            ]
+        },
+        "433": {
+            "name": "Polyoxyethylene (20) sorbitan monooleate",
+            "functional_class": [
+                "Dispersing agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "dispersing agent",
+                "emulsifier",
+                "emulsion stabilizer"
+            ]
+        },
+        "434": {
+            "name": "Polyoxyethylene (20) sorbitan monopalmitate",
+            "functional_class": [
+                "Dispersing agent",
+                "Emulsifier"
+            ],
+            "purpose": [
+                "dispersing agent",
+                "emulsifier"
+            ]
+        },
+        "435": {
+            "name": "Polyoxyethylene (20) sorbitan monostearate",
+            "functional_class": [
+                "Dispersing agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "dispersing agent",
+                "emulsifier",
+                "emulsion stabilizer"
+            ]
+        },
+        "436": {
+            "name": "Polyoxyethylene (20) sorbitan tristearate",
+            "functional_class": [
+                "Dispersing agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "dispersing agent",
+                "emulsifier",
+                "emulsion stabilizer"
+            ]
+        },
+        "440": {
+            "name": "Pectins",
+            "functional_class": [
+                "Emulsifier",
+                "Gelling agent",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "gelling agent",
+                "glazing agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "441": {
+            "name": "Superglycerinated hydrogenated rapeseed oil",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "442": {
+            "name": "Ammonium salts of phosphatidic acid",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "443": {
+            "name": "Brominated vegetable oils",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "444": {
+            "name": "Sucrose acetate isobutyrate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "445": {
+            "name": "Glycerol esters of rosin",
+            "functional_class": [
+                "Density adjustment agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "density adjustment agent",
+                "emulsifier",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "445(i)": "Glycerol ester of gum rosin",
+                "445(ii)": "Glycerol ester of tall oil rosin",
+                "445(iii)": "Glycerol ester of wood rosin"
+            }
+        },
+        "446": {
+            "name": "Succistearin",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "450": {
+            "name": "Diphosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant",
+                "Raising agent",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant",
+                "raising agent",
+                "sequestrant",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "450(i)": "Disodium diphosphate",
+                "450(ii)": "Trisodium diphosphate",
+                "450(iii)": "Tetrasodium diphosphate",
+                "450(iv)": "Dipotassium diphosphate",
+                "450(v)": "Tetrapotassium diphosphate",
+                "450(vi)": "Dicalcium diphosphate",
+                "450(vii)": "Calcium dihydrogen diphosphate",
+                "450(viii)": "Dimagnesium diphosphate",
+                "450(ix)": "Magnesium dihydrogen diphosphate"
+            }
+        },
+        "451": {
+            "name": "Triphosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant",
+                "sequestrant",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "451(i)": "Pentasodium triphosphate",
+                "451(ii)": "Pentapotassium triphosphate",
+                "451(iii)": "Sodium potassium triphosphate"
+            }
+        },
+        "452": {
+            "name": "Polyphosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Humectant",
+                "Raising agent",
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "humectant",
+                "raising agent",
+                "sequestrant",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "452(i)": "Sodium polyphosphate",
+                "452(ii)": "Potassium polyphosphate",
+                "452(iii)": "Sodium calcium polyphosphate",
+                "452(iv)": "Calcium polyphosphate",
+                "452(v)": "Ammonium polyphosphate",
+                "452(vi)": "Sodium potassium hexametaphosphate"
+            }
+        },
+        "453": {
+            "name": "Ferric(III)-orthophosphate",
+            "functional_class": [
+                "Colour",
+                "Carrier"
+            ],
+            "purpose": [
+                "colour",
+                "carrier"
+            ]
+        },
+        "454": {
+            "name": "Ferric(III)-pyrophosphate",
+            "functional_class": [
+                "Carrier"
+            ],
+            "purpose": [
+                "carrier"
+            ]
+        },
+        "455": {
+            "name": "Yeast mannoproteins",
+            "functional_class": [
+                "Stabilizer"
+            ],
+            "purpose": [
+                "stabilizer"
+            ]
+        },
+        "459": {
+            "name": "Cyclodextrin, beta-",
+            "functional_class": [
+                "Carrier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "stabilizer",
+                "binder"
+            ]
+        },
+        "460": {
+            "name": "Celluloses",
+            "functional_class": [
+                "Anticaking agent",
+                "Bulking agent",
+                "Carrier",
+                "Glazing agent",
+                "Emulsifier",
+                "Foaming agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "bulking agent",
+                "carrier",
+                "glazing agent",
+                "emulsifier",
+                "foaming agent",
+                "stabilizer",
+                "thickener"
+            ],
+            "subtypes": {
+                "460(i)": "Microcrystalline cellulose (Cellulose gel)",
+                "460(ii)": "Powdered cellulose"
+            }
+        },
+        "461": {
+            "name": "Methyl cellulose",
+            "functional_class": [
+                "Bulking agent",
+                "Coating agent",
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "coating agent",
+                "emulsifier",
+                "glazing agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "462": {
+            "name": "Ethyl cellulose",
+            "functional_class": [
+                "Binder",
+                "Bulking agent",
+                "Carrier",
+                "Glazing agent",
+                "Thickener"
+            ],
+            "purpose": [
+                "binder",
+                "bulking agent",
+                "carrier",
+                "glazing agent",
+                "thickener"
+            ]
+        },
+        "463": {
+            "name": "Hydroxypropyl cellulose",
+            "functional_class": [
+                "Bulking agent",
+                "Coating agent",
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "coating agent",
+                "emulsifier",
+                "glazing agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "464": {
+            "name": "Hydroxypropyl methyl cellulose",
+            "functional_class": [
+                "Bulking agent",
+                "Coating agent",
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "coating agent",
+                "emulsifier",
+                "glazing agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "465": {
+            "name": "Methyl ethyl cellulose",
+            "functional_class": [
+                "Bulking agent",
+                "Emulsifier",
+                "Foaming agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "emulsifier",
+                "foaming agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "466": {
+            "name": "Sodium carboxymethyl cellulose (Cellulose gum)",
+            "functional_class": [
+                "Anti-caking agent",
+                "Binder",
+                "Bulking agent",
+                "Carrier",
+                "Emulsifier",
+                "Firming agent",
+                "Gelling agent",
+                "Glazing agent",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "binder",
+                "bulking agent",
+                "carrier",
+                "emulsifier",
+                "firming agent",
+                "gelling agent",
+                "glazing agent",
+                "humectant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "467": {
+            "name": "Ethyl hydroxyethyl cellulose",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "468": {
+            "name": "Cross-linked sodium carboxymethyl cellulose (Cross-linked cellulose gum)",
+            "functional_class": [
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "stabilizer",
+                "binder"
+            ]
+        },
+        "469": {
+            "name": "Sodium carboxymethyl cellulose, enzymatically hydrolysed (Cellulose gum, enzymatically hydrolyzed)",
+            "functional_class": [
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "470": {
+            "name": "Salts of fatty acids",
+            "functional_class": [
+                "Anticaking agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "emulsifier",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "470(i)": "Salts of myristic, palmitic and stearic acids with ammonia, calcium, potassium and sodium",
+                "470(ii)": "Salts of oleic acid with calcium, potassium and sodium",
+                "470(iii)": "Magnesium stearate"
+            }
+        },
+        "471": {
+            "name": "Mono- and di- glycerides of fatty acids",
+            "functional_class": [
+                "Antifoaming agent",
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "antifoaming agent",
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "472a": {
+            "name": "Acetic and fatty acid esters of glycerol",
+            "functional_class": [
+                "Emulsifier",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "472b": {
+            "name": "Lactic and fatty acid esters of glycerol",
+            "functional_class": [
+                "Emulsifier",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "472c": {
+            "name": "Citric and fatty acid esters of glycerol",
+            "functional_class": [
+                "Antioxidant",
+                "Emulsifier",
+                "Flour treatment agent",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "antioxidant synergist",
+                "emulsifier",
+                "dough conditioner",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "472d": {
+            "name": "Tartaric acid esters of mono- and di- glycerides of fatty acids",
+            "functional_class": [
+                "Emulsifier",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "472e": {
+            "name": "Diacetyltartaric and fatty acid esters of glycerol",
+            "functional_class": [
+                "Emulsifier",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "472g": {
+            "name": "Succinylated monoglycerides",
+            "functional_class": [
+                "Emulsifier",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "473": {
+            "name": "Sucrose esters of fatty acids",
+            "functional_class": [
+                "Emulsifier",
+                "Foaming agent",
+                "Glazing agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "foaming agent",
+                "glazing agent",
+                "stabilizer"
+            ]
+        },
+        "473a": {
+            "name": "Sucrose oligoesters, type I and type II",
+            "functional_class": [
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "coating agent",
+                "stabilizer"
+            ]
+        },
+        "474": {
+            "name": "Sucroglycerides",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "475": {
+            "name": "Polyglycerol esters of fatty acids",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "476": {
+            "name": "Polyglycerol esters of interesterified ricinoleic acid",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "477": {
+            "name": "Propylene glycol esters of fatty acids",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "478": {
+            "name": "Lactylated fatty acid esters of glycerol and propylene glycol",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "479": {
+            "name": "Thermally oxidized soya bean oil interacted with mono- and diglycerides of fatty acids",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "480": {
+            "name": "Dioctyl sodium sulfosuccinate",
+            "functional_class": [
+                "Emulsifier",
+                "Humectant"
+            ],
+            "purpose": [
+                "emulsifier",
+                "wetting agent"
+            ]
+        },
+        "481": {
+            "name": "Sodium lactylates",
+            "functional_class": [
+                "Emulsifier",
+                "Flour treatment agent",
+                "Foaming agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "dough conditioner",
+                "whipping agent",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "481(i)": "Sodium stearoyl lactylate",
+                "481(ii)": "Sodium oleyl lactylate"
+            }
+        },
+        "482": {
+            "name": "Calcium lactylates",
+            "functional_class": [
+                "Emulsifier",
+                "Flour treatment agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "dough conditioners",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "482(i)": "Calcium stearoyl lactylate",
+                "482(ii)": "Calcium oleyl lactylate"
+            }
+        },
+        "483": {
+            "name": "Stearyl tartrate",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "484": {
+            "name": "Stearyl citrate",
+            "functional_class": [
+                "Antioxidant",
+                "Emulsifier",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "antioxidant",
+                "emulsifier",
+                "sequestrant"
+            ]
+        },
+        "485": {
+            "name": "Sodium stearoyl fumarate",
+            "functional_class": [
+                "Emulsifier",
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "emulsifier",
+                "flour treatment agent"
+            ]
+        },
+        "486": {
+            "name": "Calcium stearoyl fumarate",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "487": {
+            "name": "Sodium laurylsulfate",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "488": {
+            "name": "Ethoxylated mono- and di-glycerides",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "489": {
+            "name": "Methyl glucoside-coconut oil ester",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "491": {
+            "name": "Sorbitan monostearate",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "492": {
+            "name": "Sorbitan tristearate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "493": {
+            "name": "Sorbitan monolaurate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "494": {
+            "name": "Sorbitan monooleate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer"
+            ]
+        },
+        "495": {
+            "name": "Sorbitan monopalmitate",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "496": {
+            "name": "Sorbitan trioleate",
+            "functional_class": [
+                "Stabilizer"
+            ],
+            "purpose": [
+                "stabilizer"
+            ]
+        },
+        "500": {
+            "name": "Sodium carbonates",
+            "functional_class": [
+                "Acidity regulator",
+                "Anticaking agent",
+                "Raising agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "anticaking agent",
+                "raising agent",
+                "stabilizer",
+                "thickener"
+            ],
+            "subtypes": {
+                "500(i)": "Sodium carbonate",
+                "500(ii)": "Sodium hydrogen carbonate",
+                "500(iii)": "Sodium sesquicarbonate"
+            }
+        },
+        "501": {
+            "name": "Potassium carbonates",
+            "functional_class": [
+                "Acidity regulator",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "501(i)": "Potassium carbonate",
+                "501(ii)": "Potassium hydrogen carbonate"
+            }
+        },
+        "503": {
+            "name": "Ammonium carbonates",
+            "functional_class": [
+                "Acidity regulator",
+                "Raising agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "raising agent"
+            ],
+            "subtypes": {
+                "503(i)": "Ammonium carbonate",
+                "503(ii)": "Ammonium hydrogen carbonate"
+            }
+        },
+        "504": {
+            "name": "Magnesium carbonates",
+            "functional_class": [
+                "Acidity regulator",
+                "Anticaking agent",
+                "Carrier",
+                "Colour retention agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "anticaking agent",
+                "carrier",
+                "colour retention agent"
+            ],
+            "subtypes": {
+                "504(i)": "Magnesium carbonate",
+                "504(ii)": "Magnesium hydroxide carbonate"
+            }
+        },
+        "505": {
+            "name": "Ferrous carbonate",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "507": {
+            "name": "Hydrochloric acid",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "508": {
+            "name": "Potassium chloride",
+            "functional_class": [
+                "Firming agent",
+                "Flavour enhancer",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "firming agent",
+                "flavour enhancer",
+                "stabilizer synergist",
+                "thickener synergist"
+            ]
+        },
+        "509": {
+            "name": "Calcium chloride",
+            "functional_class": [
+                "Firming agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "firming agent",
+                "stabilizer synergist",
+                "thickener synergist"
+            ]
+        },
+        "510": {
+            "name": "Ammonium chloride",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "511": {
+            "name": "Magnesium chloride",
+            "functional_class": [
+                "Colour retention agent",
+                "Firming agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "colour fixative",
+                "firming agent",
+                "stabilizer"
+            ]
+        },
+        "512": {
+            "name": "Stannous chloride",
+            "functional_class": [
+                "Antioxidant",
+                "Colour retention agent"
+            ],
+            "purpose": [
+                "antioxidant",
+                "colour retention agent"
+            ]
+        },
+        "513": {
+            "name": "Sulfuric acid",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "514": {
+            "name": "Sodium sulfates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ],
+            "subtypes": {
+                "514(i)": "Sodium sulfate",
+                "514(ii)": "Sodium hydrogen sulfate"
+            }
+        },
+        "515": {
+            "name": "Potassium sulfates",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ],
+            "subtypes": {
+                "515(i)": "Potassium sulfate",
+                "515(ii)": "Potassium hydrogen sulfate"
+            }
+        },
+        "516": {
+            "name": "Calcium sulfate",
+            "functional_class": [
+                "Acidity regulator",
+                "Firming agent",
+                "Flour treatment agent",
+                "Sequestrant",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "firming agent",
+                "flour treatment agent",
+                "sequestrant",
+                "stabilizer"
+            ]
+        },
+        "517": {
+            "name": "Ammonium sulfate",
+            "functional_class": [
+                "Flour treatment agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "flour treatment agent",
+                "stabilizer"
+            ]
+        },
+        "518": {
+            "name": "Magnesium sulfate",
+            "functional_class": [
+                "Firming agent",
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "firming agent",
+                "flavour enhancer"
+            ]
+        },
+        "519": {
+            "name": "Cupric sulfate",
+            "functional_class": [
+                "Colour retention agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "colour fixative",
+                "preservative"
+            ]
+        },
+        "520": {
+            "name": "Aluminium sulfate",
+            "functional_class": [
+                "Firming agent"
+            ],
+            "purpose": [
+                "firming agent"
+            ]
+        },
+        "521": {
+            "name": "Aluminium sodium sulfate",
+            "functional_class": [
+                "Acidity regulator",
+                "Firming agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "firming agent"
+            ]
+        },
+        "522": {
+            "name": "Aluminium potassium sulfate",
+            "functional_class": [
+                "Acidity regulator",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "stabilizer"
+            ]
+        },
+        "523": {
+            "name": "Aluminium ammonium sulfate",
+            "functional_class": [
+                "Acidity regulator",
+                "Firming agent",
+                "Raising agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "firming agent",
+                "raising agent",
+                "stabilizer"
+            ]
+        },
+        "524": {
+            "name": "Sodium hydroxide",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "525": {
+            "name": "Potassium hydroxide",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "526": {
+            "name": "Calcium hydroxide",
+            "functional_class": [
+                "Acidity regulator",
+                "Firming agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "firming agent"
+            ]
+        },
+        "527": {
+            "name": "Ammonium hydroxide",
+            "functional_class": [
+                "Acidity regulator"
+            ],
+            "purpose": [
+                "acidity regulator"
+            ]
+        },
+        "528": {
+            "name": "Magnesium hydroxide",
+            "functional_class": [
+                "Acidity regulator",
+                "Colour retention agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "colour retention agent"
+            ]
+        },
+        "529": {
+            "name": "Calcium oxide",
+            "functional_class": [
+                "Acidity regulator",
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "flour treatment agent"
+            ]
+        },
+        "530": {
+            "name": "Magnesium oxide",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "535": {
+            "name": "Sodium ferrocyanide",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "536": {
+            "name": "Potassium ferrocyanide",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "537": {
+            "name": "Ferrous hexacyanomanganate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "538": {
+            "name": "Calcium ferrocyanide",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "539": {
+            "name": "Sodium thiosulfate",
+            "functional_class": [
+                "Antioxidant",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "antioxidant",
+                "sequestrant"
+            ]
+        },
+        "541": {
+            "name": "Sodium aluminium phosphates",
+            "functional_class": [
+                "Acidity regulator",
+                "Emulsifier",
+                "Emulsifying salt",
+                "Raising agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "emulsifier",
+                "emulsifying salt",
+                "raising agent",
+                "stabilizer",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "541(i)": "Sodium aluminium phosphate, acidic",
+                "541(ii)": "Sodium aluminium phosphate, basic"
+            }
+        },
+        "542": {
+            "name": "Bone phosphate",
+            "functional_class": [
+                "Anticaking agent",
+                "Emulsifier",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "emulsifier",
+                "moisture-retention agent",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "550": {
+            "name": "Sodium silicates",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ],
+            "subtypes": {
+                "550(i)": "Sodium silicate",
+                "550(ii)": "Sodium metasilicate"
+            }
+        },
+        "551": {
+            "name": "Silicon dioxide, amorphous",
+            "functional_class": [
+                "Anticaking agent",
+                "Carrier"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "carrier"
+            ]
+        },
+        "552": {
+            "name": "Calcium silicate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "553": {
+            "name": "Magnesium silicates",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "dusting agent"
+            ],
+            "subtypes": {
+                "553(i)": "Magnesium silicate, synthetic",
+                "553(ii)": "Magnesium trisilicate",
+                "553(iii)": "Talc"
+            }
+        },
+        "554": {
+            "name": "Sodium aluminosilicate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "555": {
+            "name": "Potassium aluminium silicate",
+            "functional_class": [
+                "Anticaking agent",
+                "Carrier"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "carrier"
+            ]
+        },
+        "556": {
+            "name": "Calcium aluminium silicate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "557": {
+            "name": "Zinc silicate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "558": {
+            "name": "Bentonite",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "559": {
+            "name": "Aluminium silicate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "560": {
+            "name": "Potassium silicate",
+            "functional_class": [
+                "Anticaking agent"
+            ],
+            "purpose": [
+                "anticaking agent"
+            ]
+        },
+        "570": {
+            "name": "Fatty acids",
+            "functional_class": [
+                "Antifoaming agent",
+                "Glazing agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "antifoaming agent",
+                "glazing agent",
+                "foam stabilizer"
+            ]
+        },
+        "574": {
+            "name": "Gluconic acid, D-",
+            "functional_class": [
+                "Acidity regulator",
+                "Raising agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "raising agent"
+            ]
+        },
+        "575": {
+            "name": "Glucono delta-lactone",
+            "functional_class": [
+                "Acidity regulator",
+                "Raising agent",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "raising agent",
+                "sequestrant"
+            ]
+        },
+        "576": {
+            "name": "Sodium gluconate",
+            "functional_class": [
+                "Sequestrant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "sequestrant",
+                "stabilizer",
+                "thickener"
+            ]
+        },
+        "577": {
+            "name": "Potassium gluconate",
+            "functional_class": [
+                "Acidity regulator",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "sequestrant"
+            ]
+        },
+        "578": {
+            "name": "Calcium gluconate",
+            "functional_class": [
+                "Acidity regulator",
+                "Firming agent",
+                "Sequestrant"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "firming agent",
+                "sequestrant"
+            ]
+        },
+        "579": {
+            "name": "Ferrous gluconate",
+            "functional_class": [
+                "Colour retention agent"
+            ],
+            "purpose": [
+                "colour stabilizer"
+            ]
+        },
+        "580": {
+            "name": "Magnesium gluconate",
+            "functional_class": [
+                "Acidity regulator",
+                "Firming agent"
+            ],
+            "purpose": [
+                "acidity regulator",
+                "firming agent"
+            ]
+        },
+        "585": {
+            "name": "Ferrous lactate",
+            "functional_class": [
+                "Colour retention agent",
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "colour retention agent",
+                "flavour enhancer"
+            ]
+        },
+        "586": {
+            "name": "Hexylresorcinol, 4-",
+            "functional_class": [
+                "Antioxidant",
+                "Colour retention agent"
+            ],
+            "purpose": [
+                "antioxidant",
+                "colour retention agent"
+            ]
+        },
+        "620": {
+            "name": "Glutamic acid, L(+)-",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "621": {
+            "name": "Monosodium L-glutamate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "622": {
+            "name": "Monopotassium L-glutamate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "623": {
+            "name": "Calcium di-L-glutamate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "624": {
+            "name": "Monoammonium L-glutamate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "625": {
+            "name": "Magnesium di-L-glutamate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "626": {
+            "name": "Guanylic acid, 5'-",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "627": {
+            "name": "Disodium 5'-guanylate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "628": {
+            "name": "Dipotassium 5'-guanylate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "629": {
+            "name": "Calcium 5'-guanylate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "630": {
+            "name": "Inosinic acid, 5'-",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "631": {
+            "name": "Disodium 5'-inosinate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "632": {
+            "name": "Potassium 5'-inosinate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "633": {
+            "name": "Calcium 5'-inosinate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "634": {
+            "name": "Calcium 5'-ribonucleotides",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "635": {
+            "name": "Disodium 5'-ribonucleotides",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "636": {
+            "name": "Maltol",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "637": {
+            "name": "Ethyl maltol",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "638": {
+            "name": "Sodium L-aspartate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "639": {
+            "name": "Alanine, DL-",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "640": {
+            "name": "Glycine",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "641": {
+            "name": "Leucine, L-",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "642": {
+            "name": "Lysin hydrochloride",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "650": {
+            "name": "Zinc acetate",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "900a": {
+            "name": "Polydimethylsiloxane",
+            "functional_class": [
+                "Anticaking agent",
+                "Antifoaming agent",
+                "Emulsifier"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "antifoaming agent",
+                "emulsifier"
+            ]
+        },
+        "900b": {
+            "name": "Methylphenylpolysiloxane",
+            "functional_class": [
+                "Antifoaming agent"
+            ],
+            "purpose": [
+                "antifoaming agent"
+            ]
+        },
+        "901": {
+            "name": "Beeswax",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "clouding agent",
+                "glazing agent",
+                "stabilizer",
+                "texturing agent"
+            ]
+        },
+        "902": {
+            "name": "Candelilla wax",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Glazing agent",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "clouding agent",
+                "glazing agent",
+                "surface finishing agent",
+                "texturizing agent"
+            ]
+        },
+        "903": {
+            "name": "Carnauba wax",
+            "functional_class": [
+                "Anticaking agent",
+                "Bulking agent",
+                "Carrier",
+                "Glazing agent"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "bulking agent",
+                "carrier",
+                "glazing agent"
+            ]
+        },
+        "904": {
+            "name": "Shellac, bleached",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent",
+                "surface-finishing agent"
+            ]
+        },
+        "905": {
+            "name": "Microcrystalline wax",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "905a": {
+            "name": "Mineral oil, food grade",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent",
+                "sealing agent"
+            ]
+        },
+        "905b": {
+            "name": "Petroleum jelly (Petrolatum)",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent",
+                "sealing agent"
+            ]
+        },
+        "905c": {
+            "name": "Petroleum wax",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent",
+                "sealing agent"
+            ]
+        },
+        "906": {
+            "name": "Benzoin gum",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "907": {
+            "name": "Hydrogenated poly-1-decenes",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "908": {
+            "name": "Rice bran wax",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "909": {
+            "name": "Spermaceti wax",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "910": {
+            "name": "Wax esters",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "911": {
+            "name": "Methyl esters of fatty acids",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "913": {
+            "name": "Lanolin",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "915": {
+            "name": "Glycerol, methyl, or pentaerithrytol esters of colophane",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "916": {
+            "name": "Calcium iodate",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "917": {
+            "name": "Potassium iodate",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "918": {
+            "name": "Nitrogen oxides",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "919": {
+            "name": "Nitrosyl chloride",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "920": {
+            "name": "Cysteine, L- and its hydrochlorides – sodium and potassium salts",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "921": {
+            "name": "Cystine, L-and its hydrochlorides sodium and potassium salts",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "922": {
+            "name": "Potassium persulfate",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "923": {
+            "name": "Ammonium persulfate",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "924": {
+            "name": "Chlorine",
+            "functional_class": [
+                "Bleaching agent",
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "bleaching agent",
+                "flour bleaching agent"
+            ]
+        },
+        "926": {
+            "name": "Chlorine dioxide",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "927a": {
+            "name": "Azodicarbonamide",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "927b": {
+            "name": "Urea (Carbamide)",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "928": {
+            "name": "Benzoyl peroxide",
+            "functional_class": [
+                "Bleaching agent",
+                "Flour treatment agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "bleaching agent",
+                "flour treatment agent",
+                "preservative"
+            ]
+        },
+        "929": {
+            "name": "Acetone peroxide",
+            "functional_class": [
+                "Flour treatment agent",
+                "Preservative"
+            ],
+            "purpose": [
+                "flour treatment agent",
+                "preservative"
+            ]
+        },
+        "930": {
+            "name": "Calcium peroxide",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ]
+        },
+        "938": {
+            "name": "Helium",
+            "functional_class": [
+                "Packaging gas",
+                "Propellant"
+            ],
+            "purpose": [
+                "packaging gas",
+                "propellant"
+            ]
+        },
+        "939": {
+            "name": "Hydrogen",
+            "functional_class": [
+                "Packaging gas",
+                "Propellant"
+            ],
+            "purpose": [
+                "packaging gas",
+                "propellant"
+            ]
+        },
+        "940": {
+            "name": "Dichlorodifluormethane",
+            "functional_class": [
+                "Propellant"
+            ],
+            "purpose": [
+                "propellant"
+            ]
+        },
+        "941": {
+            "name": "Nitrogen",
+            "functional_class": [
+                "Foaming agent",
+                "Packaging gas",
+                "Propellant"
+            ],
+            "purpose": [
+                "foaming agent",
+                "packaging gas",
+                "propellant"
+            ]
+        },
+        "942": {
+            "name": "Nitrous oxide",
+            "functional_class": [
+                "Antioxidant",
+                "Foaming agent",
+                "Packaging gas",
+                "Propellant"
+            ],
+            "purpose": [
+                "antioxidant",
+                "foaming agent",
+                "packaging gas",
+                "propellant"
+            ]
+        },
+        "943a": {
+            "name": "Butane",
+            "functional_class": [
+                "Propellant"
+            ],
+            "purpose": [
+                "propellant"
+            ]
+        },
+        "943b": {
+            "name": "Isobutane",
+            "functional_class": [
+                "Propellant"
+            ],
+            "purpose": [
+                "propellant"
+            ]
+        },
+        "944": {
+            "name": "Propane",
+            "functional_class": [
+                "Propellant"
+            ],
+            "purpose": [
+                "propellant"
+            ]
+        },
+        "945": {
+            "name": "Chloropentafluorethane",
+            "functional_class": [
+                "Propellant"
+            ],
+            "purpose": [
+                "propellant"
+            ]
+        },
+        "946": {
+            "name": "Octafluorcyclobutane",
+            "functional_class": [
+                "Propellant"
+            ],
+            "purpose": [
+                "propellant"
+            ]
+        },
+        "950": {
+            "name": "Acesulfame potassium",
+            "functional_class": [
+                "Flavour enhancer",
+                "Sweetener"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "sweetener"
+            ]
+        },
+        "951": {
+            "name": "Aspartame",
+            "functional_class": [
+                "Flavour enhancer",
+                "Sweetener"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "sweetener"
+            ]
+        },
+        "952": {
+            "name": "Cyclamates",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ],
+            "subtypes": {
+                "952(i)": "Cyclamic acid",
+                "952(ii)": "Calcium cyclamate",
+                "952(iv)": "Sodium cyclamate"
+            }
+        },
+        "953": {
+            "name": "Isomalt (Hydrogenated isomaltulose)",
+            "functional_class": [
+                "Anticaking agent",
+                "Bulking agent",
+                "Glazing agent",
+                "Stabilizer",
+                "Sweetener",
+                "Thickener"
+            ],
+            "purpose": [
+                "anticaking agent",
+                "bulking agent",
+                "glazing agent",
+                "stabilizer",
+                "sweetener",
+                "texturizing agent"
+            ]
+        },
+        "954": {
+            "name": "Saccharins",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ],
+            "subtypes": {
+                "954(i)": "Saccharin",
+                "954(ii)": "Calcium saccharin",
+                "954(iii)": "Potassium saccharin",
+                "954(iv)": "Sodium saccharin"
+            }
+        },
+        "955": {
+            "name": "Sucralose (Trichlorogalactosucrose)",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "956": {
+            "name": "Alitame",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "957": {
+            "name": "Thaumatin",
+            "functional_class": [
+                "Flavour enhancer",
+                "Sweetener"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "sweetener"
+            ]
+        },
+        "958": {
+            "name": "Glycyrrhizin",
+            "functional_class": [
+                "Flavour enhancer",
+                "Sweetener"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "sweetener"
+            ]
+        },
+        "959": {
+            "name": "Neohesperidine dihydrochalcone",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "960": {
+            "name": "Steviol glycosides",
+            "functional_class": [
+                "Flavour enhancer",
+                "Sweetener"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "sweetener"
+            ]
+        },
+        "961": {
+            "name": "Neotame",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "962": {
+            "name": "Aspartame-acesulfame salt",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "963": {
+            "name": "Tagatose, D-",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "964": {
+            "name": "Polyglycitol syrup",
+            "functional_class": [
+                "Sweetener"
+            ],
+            "purpose": [
+                "sweetener"
+            ]
+        },
+        "965": {
+            "name": "Maltitols",
+            "functional_class": [
+                "Bulking agent",
+                "Emulsifier",
+                "Humectant",
+                "Stabilizer",
+                "Sweetener",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "emulsifier",
+                "humectant",
+                "stabilizer",
+                "sweetener",
+                "texturizing agent"
+            ],
+            "subtypes": {
+                "965(i)": "Maltitol",
+                "965(ii)": "Maltitol syrup"
+            }
+        },
+        "966": {
+            "name": "Lactitol",
+            "functional_class": [
+                "Emulsifier",
+                "Sweetener",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "sweetener",
+                "texturizing agent"
+            ]
+        },
+        "967": {
+            "name": "Xylitol",
+            "functional_class": [
+                "Emulsifier",
+                "Humectant",
+                "Stabilizer",
+                "Sweetener",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "humectant",
+                "stabilizer",
+                "sweetener",
+                "thickener"
+            ]
+        },
+        "968": {
+            "name": "Erythritol",
+            "functional_class": [
+                "Humectant",
+                "Sweetener"
+            ],
+            "purpose": [
+                "humectant",
+                "sweetener"
+            ]
+        },
+        "969": {
+            "name": "Advantame",
+            "functional_class": [
+                "Flavour enhancer",
+                "Sweetener"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "sweetener"
+            ]
+        },
+        "999": {
+            "name": "Quillaia extracts",
+            "functional_class": [
+                "Emulsifier",
+                "Foaming agent"
+            ],
+            "purpose": [
+                "emulsifier",
+                "foaming agent"
+            ],
+            "subtypes": {
+                "999(i)": "Quillaia extract type 1",
+                "999(ii)": "Quillaia extract type 2"
+            }
+        },
+        "1000": {
+            "name": "Cholic acid",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ]
+        },
+        "1001": {
+            "name": "Choline salts and esters",
+            "functional_class": [
+                "Emulsifier"
+            ],
+            "purpose": [
+                "emulsifier"
+            ],
+            "subtypes": {
+                "1001(i)": "Choline acetate",
+                "1001(ii)": "Choline carbonate",
+                "1001(iii)": "Choline chloride",
+                "1001(iv)": "Choline citrate",
+                "1001(v)": "Choline tartrate",
+                "1001(vi)": "Choline lactate"
+            }
+        },
+        "1100": {
+            "name": "Amylases",
+            "functional_class": [
+                "Flour treatment agent"
+            ],
+            "purpose": [
+                "flour treatment agent"
+            ],
+            "subtypes": {
+                "1100(i)": "alpha-Amylase from Aspergillus oryzae var.",
+                "1100(ii)": "alpha-Amylase from Bacillus stearothermophilus",
+                "1100(iii)": "alpha-Amylase from Bacillus subtilis",
+                "1100(iv)": "alpha-Amylase from Bacillus megaterium expressed in Bacillus subtilis",
+                "1100(v)": "alpha-Amylase from Bacillus stearothermophilus expressed in Bacillus subtilis",
+                "1100(vi)": "Carbohydrase from Bacillus licheniformis"
+            }
+        },
+        "1101": {
+            "name": "Proteases",
+            "functional_class": [
+                "Flavour enhancer",
+                "Flour treatment agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "flavour enhancer",
+                "flour treatment agent",
+                "stabilizer"
+            ],
+            "subtypes": {
+                "1101(i)": "Protease",
+                "1101(ii)": "Papain",
+                "1101(iii)": "Bromelain",
+                "1101(iv)": "Ficin"
+            }
+        },
+        "1102": {
+            "name": "Glucose oxidase",
+            "functional_class": [
+                "Antioxidant"
+            ],
+            "purpose": [
+                "antioxidant"
+            ]
+        },
+        "1103": {
+            "name": "Invertases",
+            "functional_class": [
+                "Stabilizer"
+            ],
+            "purpose": [
+                "stabilizer"
+            ]
+        },
+        "1104": {
+            "name": "Lipases",
+            "functional_class": [
+                "Flavour enhancer"
+            ],
+            "purpose": [
+                "flavour enhancer"
+            ]
+        },
+        "1105": {
+            "name": "Lysozyme",
+            "functional_class": [
+                "Preservative"
+            ],
+            "purpose": [
+                "preservative"
+            ]
+        },
+        "1200": {
+            "name": "Polydextroses",
+            "functional_class": [
+                "Bulking agent",
+                "Glazing agent",
+                "Humectant",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "bulking agent",
+                "glazing agent",
+                "humectant",
+                "stabilizer",
+                "texturizing agent"
+            ]
+        },
+        "1201": {
+            "name": "Polyvinylpyrrolidone",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Glazing agent",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "dispersing agent",
+                "glazing agent",
+                "stabilizer",
+                "bodying agent"
+            ]
+        },
+        "1202": {
+            "name": "Polyvinylpyrrolidone, insoluble",
+            "functional_class": [
+                "Colour retention agent",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "colour stabilizer",
+                "colloidal stabilizer",
+                "stabilizer"
+            ]
+        },
+        "1203": {
+            "name": "Polyvinyl alcohol",
+            "functional_class": [
+                "Coating agent",
+                "Glazing agent",
+                "Thickener"
+            ],
+            "purpose": [
+                "coating agent",
+                "sealing agent",
+                "surface-finishing agent",
+                "binder",
+                "film-forming agent"
+            ]
+        },
+        "1204": {
+            "name": "Pullulan",
+            "functional_class": [
+                "Glazing agent",
+                "Thickener"
+            ],
+            "purpose": [
+                "glazing agent",
+                "thickener"
+            ]
+        },
+        "1205": {
+            "name": "Methacrylate copolymer, basic",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "1206": {
+            "name": "Methacrylate copolymer, neutral",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "1207": {
+            "name": "Methacrylate copolymer, anionic",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "1208": {
+            "name": "Polyvinylpyrrolidone-vinyl acetate copolymer",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "1209": {
+            "name": "Polyvinyl alcohol (PVA)-polyethylene glycol (PEG) graft co-polymer",
+            "functional_class": [
+                "Glazing agent"
+            ],
+            "purpose": [
+                "glazing agent"
+            ]
+        },
+        "1400": {
+            "name": "Dextrins, roasted starch",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1401": {
+            "name": "Acid-treated starch",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1402": {
+            "name": "Alkaline treated starch",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1403": {
+            "name": "Bleached starch",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1404": {
+            "name": "Oxidized starch",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1405": {
+            "name": "Starches, enzyme treated",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1410": {
+            "name": "Monostarch phosphate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1411": {
+            "name": "Distarch glycerol",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1412": {
+            "name": "Distarch phosphate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1413": {
+            "name": "Phosphated distarch phosphate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1414": {
+            "name": "Acetylated distarch phosphate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1420": {
+            "name": "Starch acetate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1422": {
+            "name": "Acetylated distarch adipate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1440": {
+            "name": "Hydroxypropyl starch",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1442": {
+            "name": "Hydroxypropyl distarch phosphate",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1450": {
+            "name": "Starch sodium octenyl succinate",
+            "functional_class": [
+                "Carrier",
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "carrier",
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1451": {
+            "name": "Acetylated oxidized starch",
+            "functional_class": [
+                "Emulsifier",
+                "Stabilizer",
+                "Thickener"
+            ],
+            "purpose": [
+                "emulsifier",
+                "stabilizer",
+                "binder",
+                "thickener"
+            ]
+        },
+        "1452": {
+            "name": "Starch aluminium octenyl succinate",
+            "functional_class": [
+                "Carrier",
+                "Stabilizer"
+            ],
+            "purpose": [
+                "carrier",
+                "stabilizer"
+            ]
+        }
+    }
+}
