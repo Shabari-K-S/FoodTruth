@@ -67,9 +67,7 @@ const SettingRow = ({
         'leaf-outline': { bg: '#22C55E20', color: '#22C55E' },
         'flower-outline': { bg: '#EAB30820', color: '#EAB308' },
         'nutrition-outline': { bg: '#F9731620', color: '#F97316' },
-        'notifications-outline': { bg: '#3B82F620', color: '#3B82F6' },
         'moon-outline': { bg: '#8B5CF620', color: '#8B5CF6' },
-        'cloud-upload-outline': { bg: '#06B6D420', color: '#06B6D4' },
         'shield-checkmark-outline': { bg: '#10B98120', color: '#10B981' },
         'download-outline': { bg: '#64748B20', color: '#64748B' },
         'trash-outline': { bg: '#EF444420', color: '#EF4444' },
@@ -160,9 +158,7 @@ export default function SettingsScreen() {
 
     // App settings data
     const appSettings = [
-        { label: "Push Notifications", description: "Scan alerts and recommendations", icon: "notifications-outline", key: "notifications" },
         { label: "Dark Mode", description: "Easier on the eyes at night", icon: "moon-outline", key: "darkMode", value: isDark, onChange: () => setDarkMode(!isDark) },
-        { label: "Cloud Sync", description: "Backup your scan history", icon: "cloud-upload-outline", key: "dataSync" },
     ];
 
     return (
