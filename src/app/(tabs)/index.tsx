@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, TextInput, TouchableOpacity, Keyboard, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import {
+    View,
+    StyleSheet,
+    TextInput,
+    TouchableOpacity,
+    Keyboard,
+    KeyboardAvoidingView,
+    Platform,
+    ScrollView,
+    useColorScheme
+} from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-import { FloatingNavBar } from '../../components/ui/FloatingNavBar';
-import { theme } from '../../theme';
 import { Ionicons } from '@expo/vector-icons';
-import { H1, H2, Body, Caption } from '../../components/ui/Typography';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { FloatingNavBar } from '../../components/ui/FloatingNavBar';
+import { H1, H2, Body, Caption } from '../../components/ui/Typography';
+import { theme } from '../../theme';
 
 export default function HomeScreen() {
     const router = useRouter();
     const insets = useSafeAreaInsets();
+    const colorScheme = useColorScheme();
+    const isDark = colorScheme === 'dark';
+
     const [eanInput, setEanInput] = useState('');
 
     const handleScanPress = () => {
@@ -26,16 +39,33 @@ export default function HomeScreen() {
         }
     };
 
+    const isValidEan = eanInput.trim() && /^\d{8,13}$/.test(eanInput.trim());
+
+    // Dynamic colors based on theme
+    const colors = {
+        bg: isDark ? '#000000' : '#FAFAFA', // zinc-50
+        textPrimary: isDark ? '#F4F4F5' : '#18181B', // zinc-100 : zinc-900
+        textSecondary: isDark ? '#A1A1AA' : '#71717A', // zinc-400 : zinc-500
+        textMuted: isDark ? '#71717A' : '#A1A1AA', // zinc-500 : zinc-400
+        border: isDark ? '#27272A' : '#E4E4E7', // zinc-800 : zinc-200
+        inputBg: isDark ? '#18181B' : '#FFFFFF', // zinc-900 : white
+        placeholder: isDark ? '#52525B' : '#A1A1AA', // zinc-600 : zinc-400
+        divider: isDark ? '#27272A' : '#E4E4E7', // zinc-800 : zinc-200
+    };
+
     return (
         <KeyboardAvoidingView
-            style={{ flex: 1 }}
+            style={[styles.container, { backgroundColor: colors.bg }]}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             keyboardVerticalOffset={0}
         >
-            <View className="flex-1 bg-zinc-50 dark:bg-black">
-                {/* Background Gradient */}
+            <View style={[styles.container, { backgroundColor: colors.bg }]}>
+                {/* Background Gradient - Adjusted for dark mode */}
                 <LinearGradient
-                    colors={['#0D948820', '#F59E0B10', '#EF444410']}
+                    colors={isDark
+                        ? ['#0D948830', '#05966920', '#DC262620']
+                        : ['#0D948820', '#F59E0B10', '#EF444410']
+                    }
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
                     style={StyleSheet.absoluteFill}
@@ -49,9 +79,13 @@ export default function HomeScreen() {
                 >
                     {/* Header */}
                     <View style={styles.header}>
-                        <Caption className="text-zinc-400 uppercase tracking-widest text-xs">FoodTruth</Caption>
-                        <H1 className="text-zinc-900 dark:text-zinc-100 text-3xl mt-1">Scan & Discover</H1>
-                        <Body className="text-zinc-500 mt-2">
+                        <Caption style={[styles.brandLabel, { color: colors.textMuted }]}>
+                            FoodTruth
+                        </Caption>
+                        <H1 style={[styles.title, { color: colors.textPrimary }]}>
+                            Scan & Discover
+                        </H1>
+                        <Body style={[styles.subtitle, { color: colors.textSecondary }]}>
                             Uncover what's really in your food
                         </Body>
                     </View>
@@ -68,11 +102,11 @@ export default function HomeScreen() {
                                 style={styles.scanButtonGradient}
                             >
                                 <Ionicons name="scan" size={48} color="white" />
-                                <Body className="text-white font-bold mt-2 text-lg">Scan Barcode</Body>
+                                <Body style={styles.scanButtonText}>Scan Barcode</Body>
                             </LinearGradient>
                         </TouchableOpacity>
 
-                        <Caption className="text-zinc-400 mt-6 text-center">
+                        <Caption style={[styles.hint, { color: colors.textMuted }]}>
                             Point your camera at any product barcode
                         </Caption>
                     </View>
@@ -80,16 +114,26 @@ export default function HomeScreen() {
                     {/* Manual EAN Input */}
                     <View style={styles.inputContainer}>
                         <View style={styles.dividerRow}>
-                            <View style={styles.dividerLine} />
-                            <Caption className="text-zinc-400 mx-4">or enter manually</Caption>
-                            <View style={styles.dividerLine} />
+                            <View style={[styles.dividerLine, { backgroundColor: colors.divider }]} />
+                            <Caption style={[styles.dividerText, { color: colors.textMuted }]}>
+                                or enter manually
+                            </Caption>
+                            <View style={[styles.dividerLine, { backgroundColor: colors.divider }]} />
                         </View>
 
-                        <View style={styles.inputRow}>
+                        <View style={[
+                            styles.inputRow,
+                            {
+                                backgroundColor: colors.inputBg,
+                                borderColor: colors.border,
+                                shadowColor: isDark ? '#000' : '#000',
+                                shadowOpacity: isDark ? 0.3 : 0.05,
+                            }
+                        ]}>
                             <TextInput
-                                style={styles.input}
+                                style={[styles.input, { color: colors.textPrimary }]}
                                 placeholder="Enter EAN / Barcode (8-13 digits)"
-                                placeholderTextColor="#9CA3AF"
+                                placeholderTextColor={colors.placeholder}
                                 value={eanInput}
                                 onChangeText={setEanInput}
                                 keyboardType="number-pad"
@@ -100,30 +144,50 @@ export default function HomeScreen() {
                             <TouchableOpacity
                                 onPress={handleManualSearch}
                                 style={styles.searchButton}
-                                disabled={!eanInput.trim() || !/^\d{8,13}$/.test(eanInput.trim())}
+                                disabled={!isValidEan}
                             >
                                 <Ionicons
                                     name="arrow-forward-circle"
                                     size={44}
-                                    color={eanInput.trim() && /^\d{8,13}$/.test(eanInput.trim()) ? theme.colors.primary : '#CBD5E1'}
+                                    color={isValidEan ? theme.colors.primary : isDark ? '#3F3F46' : '#D4D4D8'}
                                 />
                             </TouchableOpacity>
                         </View>
                     </View>
                 </ScrollView>
 
+                <FloatingNavBar />
             </View>
         </KeyboardAvoidingView>
     );
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
     scrollContent: {
         flexGrow: 1,
         paddingHorizontal: 24,
     },
     header: {
         marginTop: 20,
+    },
+    brandLabel: {
+        textTransform: 'uppercase',
+        letterSpacing: 2,
+        fontSize: 12,
+        fontWeight: '600',
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        marginTop: 4,
+    },
+    subtitle: {
+        marginTop: 8,
+        fontSize: 16,
+        lineHeight: 24,
     },
     scanContainer: {
         flex: 1,
@@ -135,7 +199,7 @@ const styles = StyleSheet.create({
         width: 180,
         height: 180,
         borderRadius: 90,
-        shadowColor: theme.colors.primary,
+        shadowColor: '#10B981',
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.4,
         shadowRadius: 20,
@@ -148,6 +212,17 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    scanButtonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        marginTop: 8,
+        fontSize: 18,
+    },
+    hint: {
+        marginTop: 24,
+        textAlign: 'center',
+        fontSize: 14,
+    },
     inputContainer: {
         paddingBottom: 120, // Space for floating nav
     },
@@ -159,20 +234,19 @@ const styles = StyleSheet.create({
     dividerLine: {
         flex: 1,
         height: 1,
-        backgroundColor: '#E5E7EB',
+    },
+    dividerText: {
+        marginHorizontal: 16,
+        fontSize: 12,
     },
     inputRow: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'white',
         borderRadius: 16,
         paddingLeft: 16,
         paddingRight: 4,
         borderWidth: 1,
-        borderColor: '#E5E7EB',
-        shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
         shadowRadius: 8,
         elevation: 2,
     },
@@ -180,7 +254,6 @@ const styles = StyleSheet.create({
         flex: 1,
         height: 56,
         fontSize: 16,
-        color: '#1F2937',
     },
     searchButton: {
         padding: 4,

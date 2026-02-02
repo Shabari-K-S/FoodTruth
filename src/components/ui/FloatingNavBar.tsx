@@ -1,5 +1,10 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import {
+    View,
+    TouchableOpacity,
+    StyleSheet,
+    useColorScheme
+} from 'react-native';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, usePathname } from 'expo-router';
@@ -9,6 +14,8 @@ import { theme } from '../../theme';
 export function FloatingNavBar() {
     const router = useRouter();
     const pathname = usePathname();
+    const colorScheme = useColorScheme();
+    const isDark = colorScheme === 'dark';
 
     const handlePress = (route: string) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -20,9 +27,24 @@ export function FloatingNavBar() {
         return pathname.includes(route);
     };
 
+    // Dynamic colors based on theme
+    const colors = {
+        blurTint: isDark ? 'dark' : 'default', // 'default' is light tint
+        blurBg: isDark ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.8)',
+        shadowOpacity: isDark ? 0.4 : 0.1,
+        inactiveIcon: isDark ? '#A1A1AA' : theme.colors.muted, // zinc-400
+    };
+
     return (
-        <View style={styles.container}>
-            <BlurView intensity={30} tint="default" style={styles.blurContainer}>
+        <View style={[
+            styles.container,
+            { shadowOpacity: colors.shadowOpacity }
+        ]}>
+            <BlurView
+                intensity={isDark ? 40 : 30}
+                tint={colors.blurTint}
+                style={[styles.blurContainer, { backgroundColor: colors.blurBg }]}
+            >
                 <View style={styles.content}>
                     {/* History */}
                     <TouchableOpacity
@@ -33,12 +55,12 @@ export function FloatingNavBar() {
                         <Ionicons
                             name={isActive('/history') ? "time" : "time-outline"}
                             size={24}
-                            color={isActive('/history') ? theme.colors.primary : theme.colors.muted}
+                            color={isActive('/history') ? theme.colors.primary : colors.inactiveIcon}
                         />
                         {isActive('/history') && <View style={styles.activeDot} />}
                     </TouchableOpacity>
 
-                    {/* Scan (Center) - Placeholder as the main trigger is on screen, but having a nav item is good fallback */}
+                    {/* Home (Center) */}
                     <TouchableOpacity
                         onPress={() => handlePress('/')}
                         style={styles.centerTabItem}
@@ -47,7 +69,7 @@ export function FloatingNavBar() {
                         <Ionicons
                             name={isActive('/') ? "home" : "home-outline"}
                             size={24}
-                            color={isActive('/') ? theme.colors.primary : theme.colors.muted}
+                            color={isActive('/') ? theme.colors.primary : colors.inactiveIcon}
                         />
                         {isActive('/') && <View style={styles.activeDot} />}
                     </TouchableOpacity>
@@ -61,7 +83,7 @@ export function FloatingNavBar() {
                         <Ionicons
                             name={isActive('/settings') ? "person" : "person-outline"}
                             size={24}
-                            color={isActive('/settings') ? theme.colors.primary : theme.colors.muted}
+                            color={isActive('/settings') ? theme.colors.primary : colors.inactiveIcon}
                         />
                         {isActive('/settings') && <View style={styles.activeDot} />}
                     </TouchableOpacity>
@@ -74,7 +96,7 @@ export function FloatingNavBar() {
 const styles = StyleSheet.create({
     container: {
         position: 'absolute',
-        bottom: 30, // Floating well above bottom
+        bottom: 30,
         alignSelf: 'center',
         borderRadius: 32,
         overflow: 'hidden',
@@ -83,13 +105,12 @@ const styles = StyleSheet.create({
             width: 0,
             height: 4,
         },
-        shadowOpacity: 0.1,
         shadowRadius: 12,
         elevation: 5,
-        width: 200, // Compact pill width
+        width: 200,
     },
     blurContainer: {
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        // Background color applied dynamically for fallback/frosting
     },
     content: {
         flexDirection: 'row',
