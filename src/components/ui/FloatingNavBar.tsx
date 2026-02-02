@@ -42,7 +42,6 @@ export function FloatingNavBar() {
         ]}>
             <BlurView
                 intensity={isDark ? 40 : 30}
-                tint={colors.blurTint}
                 style={[styles.blurContainer, { backgroundColor: colors.blurBg }]}
             >
                 <View style={styles.content}>
