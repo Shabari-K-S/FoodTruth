@@ -1,12 +1,8 @@
 import React from 'react';
-import { View, ViewProps } from 'react-native';
-import { styled } from 'nativewind';
+import { View, ViewProps, StyleSheet, ViewStyle, StyleProp } from 'react-native';
 import { useTheme } from '../../providers/ThemeProvider';
 
-const StyledView = styled(View);
-
 interface CardProps extends ViewProps {
-    className?: string;
     variant?: 'elevated' | 'flat' | 'outlined' | 'glass';
     padding?: 'none' | 'sm' | 'md' | 'lg';
     intensity?: number;
@@ -14,7 +10,6 @@ interface CardProps extends ViewProps {
 }
 
 export function Card({
-    className = '',
     variant = 'elevated',
     padding = 'md',
     intensity = 100,
@@ -24,19 +19,17 @@ export function Card({
 }: CardProps) {
     const { theme, isDark } = useTheme();
 
-    const getPadding = () => {
+    const getPaddingValue = (): number => {
         switch (padding) {
-            case 'none': return '';
-            case 'sm': return 'p-3';
-            case 'md': return 'p-4';
-            case 'lg': return 'p-6';
-            default: return 'p-4';
+            case 'none': return 0;
+            case 'sm': return 12;
+            case 'md': return 16;
+            case 'lg': return 24;
+            default: return 16;
         }
     };
 
-    const paddingClass = getPadding();
-
-    const getVariantStyles = () => {
+    const getVariantStyles = (): ViewStyle => {
         switch (variant) {
             case 'elevated':
                 return {
@@ -66,16 +59,28 @@ export function Card({
     };
 
     return (
-        <StyledView
-            className={`rounded-2xl shadow-sm ${paddingClass} ${className}`}
+        <View
             {...props}
             style={[
+                styles.card,
+                { padding: getPaddingValue() },
                 getVariantStyles(),
                 { opacity: intensity / 100 },
                 style,
             ]}
         >
             {children}
-        </StyledView>
+        </View>
     );
 }
+
+const styles = StyleSheet.create({
+    card: {
+        borderRadius: 16,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 2,
+        elevation: 1,
+    },
+});

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, Animated, Pressable, ScrollView, Alert } from 'react-native';
+import { View, Animated, Pressable, ScrollView, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
 import { ScreenLayout } from '../../components/ui/ScreenLayout';
 import { H1, H3, Body, Caption } from '../../components/ui/Typography';
@@ -23,18 +23,16 @@ const AnimatedToggle = ({ value, onValueChange, activeColor }: any) => {
     return (
         <Pressable
             onPress={onValueChange}
-            className="w-12 h-7 rounded-full justify-center px-1"
-            style={{ backgroundColor: value ? activeColor : '#71717A' }}
+            style={[styles.toggle, { backgroundColor: value ? activeColor : '#71717A' }]}
         >
             <Animated.View
-                className="w-5 h-5 rounded-full bg-white shadow-sm"
-                style={{ transform: [{ translateX }] }}
+                style={[styles.toggleKnob, { transform: [{ translateX }] }]}
             />
         </Pressable>
     );
 };
 
-// Enhanced Setting Row with isLast prop to remove bottom border
+// Enhanced Setting Row
 const SettingRow = ({
     label,
     description,
@@ -42,6 +40,7 @@ const SettingRow = ({
     onValueChange,
     icon,
     theme,
+    isDark,
     isLast = false,
     danger = false,
     showArrow = false
@@ -81,13 +80,18 @@ const SettingRow = ({
                 onPressIn={onPressIn}
                 onPressOut={onPressOut}
                 onPress={() => onValueChange?.()}
-                className={`flex-row items-center justify-between py-4 px-4 ${!isLast ? 'border-b border-border/20' : ''}`}
+                style={[
+                    styles.settingRow,
+                    !isLast && { borderBottomWidth: 1, borderBottomColor: isDark ? '#27272A' : '#F4F4F5' }
+                ]}
             >
-                <View className="flex-1 mr-4 flex-row items-center">
+                <View style={styles.settingLeft}>
                     {icon && (
                         <View
-                            className="w-10 h-10 rounded-xl items-center justify-center mr-3"
-                            style={{ backgroundColor: danger ? '#EF444420' : iconStyle.bg }}
+                            style={[
+                                styles.iconContainer,
+                                { backgroundColor: danger ? '#EF444420' : iconStyle.bg }
+                            ]}
                         >
                             <Ionicons
                                 name={icon}
@@ -96,12 +100,15 @@ const SettingRow = ({
                             />
                         </View>
                     )}
-                    <View className="flex-1">
-                        <Body className={danger ? 'text-red-500 font-medium' : 'text-foreground font-medium'}>
+                    <View style={styles.settingText}>
+                        <Body style={[
+                            styles.settingLabel,
+                            { color: danger ? '#EF4444' : theme.colors.foreground }
+                        ]}>
                             {label}
                         </Body>
                         {description && (
-                            <Caption className="mt-0.5 leading-4 text-muted">
+                            <Caption style={styles.settingDescription}>
                                 {description}
                             </Caption>
                         )}
@@ -125,12 +132,10 @@ const SettingRow = ({
 };
 
 // Section Header Component
-const SectionHeader = ({ title }: any) => (
-    <View className="flex-row items-center mb-3 mt-6 px-1">
-        <View className="w-1 h-4 rounded-full bg-primary mr-2" />
-        <H3 className="text-xs font-bold uppercase tracking-widest text-muted">
-            {title}
-        </H3>
+const SectionHeader = ({ title, theme }: any) => (
+    <View style={styles.sectionHeader}>
+        <View style={[styles.sectionIndicator, { backgroundColor: theme.colors.primary }]} />
+        <H3 style={styles.sectionTitle}>{title}</H3>
     </View>
 );
 
@@ -149,42 +154,43 @@ export default function SettingsScreen() {
         setPreferences(prev => ({ ...prev, [key]: !prev[key] }));
     };
 
-    // Dietary preferences data
     const dietaryOptions = [
         { label: "Vegetarian", description: "Hide non-vegetarian products", icon: "leaf-outline", key: "vegetarian" },
         { label: "Vegan", description: "Filter all animal products", icon: "flower-outline", key: "vegan" },
         { label: "Gluten Free", description: "Show gluten-free alternatives", icon: "nutrition-outline", key: "glutenFree" },
     ];
 
-    // App settings data
     const appSettings = [
         { label: "Dark Mode", description: "Easier on the eyes at night", icon: "moon-outline", key: "darkMode", value: isDark, onChange: () => setDarkMode(!isDark) },
     ];
 
     return (
-        <ScreenLayout className="flex-1 bg-background">
+        <ScreenLayout>
             <ScrollView
-                className="flex-1"
+                style={styles.scrollView}
                 showsVerticalScrollIndicator={false}
             >
                 {/* Header */}
-                <View className="px-6 pt-12 pb-6">
-                    <View className="flex-row items-center justify-between mb-2">
-                        <Caption className="text-primary font-semibold mb-1 tracking-wider">FOODTRUTH</Caption>
+                <View style={styles.header}>
+                    <View style={styles.headerTop}>
+                        <Caption style={[styles.appName, { color: theme.colors.primary }]}>FOODTRUTH</Caption>
                         <Pressable
-                            className="w-10 h-10 rounded-full bg-surface items-center justify-center border border-border/20"
+                            style={[
+                                styles.profileButton,
+                                { backgroundColor: theme.colors.surface, borderColor: isDark ? '#27272A' : '#E5E7EB' }
+                            ]}
                             onPress={() => router.push('/profile')}
                         >
                             <Ionicons name="person" size={20} color={theme.colors.primary} />
                         </Pressable>
                     </View>
-                    <H1 className="text-3xl font-bold">Settings</H1>
+                    <H1 style={styles.title}>Settings</H1>
                 </View>
 
-                <View className="px-6 pb-8">
+                <View style={styles.content}>
                     {/* Dietary Preferences */}
-                    <SectionHeader title="Dietary Preferences" />
-                    <Card className="p-0 overflow-hidden bg-surface">
+                    <SectionHeader title="Dietary Preferences" theme={theme} />
+                    <Card padding="none" style={{ overflow: 'hidden' }}>
                         {dietaryOptions.map((item, index) => (
                             <SettingRow
                                 key={item.key}
@@ -194,14 +200,15 @@ export default function SettingsScreen() {
                                 value={preferences[item.key as keyof typeof preferences]}
                                 onValueChange={() => toggle(item.key as keyof typeof preferences)}
                                 theme={theme}
-                                isLast={index === dietaryOptions.length - 1}  // ✨ Last item has no border
+                                isDark={isDark}
+                                isLast={index === dietaryOptions.length - 1}
                             />
                         ))}
                     </Card>
 
                     {/* App Settings */}
-                    <SectionHeader title="App Settings" />
-                    <Card className="p-0 overflow-hidden bg-surface mb-4">
+                    <SectionHeader title="App Settings" theme={theme} />
+                    <Card padding="none" style={[{ overflow: 'hidden', marginBottom: 16 }]}>
                         {appSettings.map((item, index) => (
                             <SettingRow
                                 key={item.key}
@@ -211,14 +218,15 @@ export default function SettingsScreen() {
                                 value={item.key === 'darkMode' ? isDark : preferences[item.key as keyof typeof preferences]}
                                 onValueChange={item.onChange || (() => toggle(item.key as keyof typeof preferences))}
                                 theme={theme}
-                                isLast={index === appSettings.length - 1}  // ✨ Last item has no border
+                                isDark={isDark}
+                                isLast={index === appSettings.length - 1}
                             />
                         ))}
                     </Card>
 
                     {/* Footer */}
-                    <View className="items-center mt-4">
-                        <Caption className="text-muted/50 text-center">
+                    <View style={styles.footer}>
+                        <Caption style={styles.footerText}>
                             FoodTruth v1.0.0 • Build 2026
                         </Caption>
                     </View>
@@ -227,3 +235,118 @@ export default function SettingsScreen() {
         </ScreenLayout>
     );
 }
+
+const styles = StyleSheet.create({
+    scrollView: {
+        flex: 1,
+    },
+    header: {
+        paddingHorizontal: 24,
+        paddingTop: 48,
+        paddingBottom: 24,
+    },
+    headerTop: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 8,
+    },
+    appName: {
+        fontWeight: '600',
+        marginBottom: 4,
+        letterSpacing: 1,
+    },
+    profileButton: {
+        width: 40,
+        height: 40,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+    },
+    title: {
+        fontSize: 30,
+        fontWeight: '700',
+    },
+    content: {
+        paddingHorizontal: 24,
+        paddingBottom: 32,
+    },
+    sectionHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 12,
+        marginTop: 24,
+        paddingHorizontal: 4,
+    },
+    sectionIndicator: {
+        width: 4,
+        height: 16,
+        borderRadius: 2,
+        marginRight: 8,
+    },
+    sectionTitle: {
+        fontSize: 12,
+        fontWeight: '700',
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        color: '#71717A',
+    },
+    settingRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingVertical: 16,
+        paddingHorizontal: 16,
+    },
+    settingLeft: {
+        flex: 1,
+        marginRight: 16,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    iconContainer: {
+        width: 40,
+        height: 40,
+        borderRadius: 12,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 12,
+    },
+    settingText: {
+        flex: 1,
+    },
+    settingLabel: {
+        fontWeight: '500',
+    },
+    settingDescription: {
+        marginTop: 2,
+        lineHeight: 16,
+    },
+    toggle: {
+        width: 48,
+        height: 28,
+        borderRadius: 14,
+        justifyContent: 'center',
+        paddingHorizontal: 4,
+    },
+    toggleKnob: {
+        width: 20,
+        height: 20,
+        borderRadius: 10,
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    footer: {
+        alignItems: 'center',
+        marginTop: 16,
+    },
+    footerText: {
+        textAlign: 'center',
+        opacity: 0.5,
+    },
+});

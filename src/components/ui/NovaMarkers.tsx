@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { H3, Body, Caption, BodyBold } from './Typography';
+import { H3, Body, Caption } from './Typography';
 import { theme } from '../../theme';
+import { useTheme } from '../../providers/ThemeProvider';
 
 interface NovaMarkersProps {
     novaGroup?: number;
@@ -12,9 +13,10 @@ interface NovaMarkersProps {
 }
 
 export function NovaMarkers({ novaGroup, markers }: NovaMarkersProps) {
+    const { isDark } = useTheme();
+
     if (!markers || !novaGroup) return null;
 
-    // Get markers for NOVA 4 (ultra-processed indicators)
     const ultraProcessedMarkers = markers['4'] || [];
 
     if (ultraProcessedMarkers.length === 0) return null;
@@ -31,10 +33,16 @@ export function NovaMarkers({ novaGroup, markers }: NovaMarkersProps) {
     };
 
     return (
-        <View className="mb-6">
-            <H3 className="mb-3 text-zinc-900 dark:text-zinc-100">Why Ultra-Processed?</H3>
-            <View className="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-2xl border border-purple-100 dark:border-purple-900">
-                <Caption className="text-purple-600 dark:text-purple-400 mb-3 font-bold uppercase tracking-wider text-[10px]">
+        <View style={styles.container}>
+            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Why Ultra-Processed?</H3>
+            <View style={[
+                styles.card,
+                {
+                    backgroundColor: isDark ? 'rgba(88, 28, 135, 0.2)' : '#FAF5FF',
+                    borderColor: isDark ? '#581C87' : '#E9D5FF',
+                }
+            ]}>
+                <Caption style={styles.header}>
                     NOVA 4 Markers Found ({ultraProcessedMarkers.length})
                 </Caption>
                 {ultraProcessedMarkers.map((marker, index) => {
@@ -42,18 +50,27 @@ export function NovaMarkers({ novaGroup, markers }: NovaMarkersProps) {
                     return (
                         <View
                             key={index}
-                            className={`flex-row items-center py-2 ${index < ultraProcessedMarkers.length - 1 ? 'border-b border-purple-100 dark:border-purple-800' : ''}`}
+                            style={[
+                                styles.markerRow,
+                                index < ultraProcessedMarkers.length - 1 && {
+                                    borderBottomWidth: 1,
+                                    borderBottomColor: isDark ? '#581C87' : '#E9D5FF',
+                                }
+                            ]}
                         >
-                            <View className="w-6 h-6 rounded-full bg-purple-200 dark:bg-purple-800 items-center justify-center mr-3">
+                            <View style={[
+                                styles.iconContainer,
+                                { backgroundColor: isDark ? '#581C87' : '#E9D5FF' }
+                            ]}>
                                 <Ionicons
                                     name={type === 'additives' ? 'flask' : 'nutrition'}
                                     size={12}
                                     color={theme.colors.ultraProcessed}
                                 />
                             </View>
-                            <View className="flex-1">
-                                <Body className="text-purple-800 dark:text-purple-200">{value}</Body>
-                                <Caption className="text-purple-400 capitalize text-[10px]">{type}</Caption>
+                            <View style={styles.textContainer}>
+                                <Body style={{ color: isDark ? '#E9D5FF' : '#581C87' }}>{value}</Body>
+                                <Caption style={styles.typeLabel}>{type}</Caption>
                             </View>
                         </View>
                     );
@@ -62,3 +79,46 @@ export function NovaMarkers({ novaGroup, markers }: NovaMarkersProps) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 24,
+    },
+    title: {
+        marginBottom: 12,
+    },
+    card: {
+        padding: 16,
+        borderRadius: 16,
+        borderWidth: 1,
+    },
+    header: {
+        color: '#7C3AED',
+        marginBottom: 12,
+        fontWeight: '700',
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        fontSize: 10,
+    },
+    markerRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingVertical: 8,
+    },
+    iconContainer: {
+        width: 24,
+        height: 24,
+        borderRadius: 12,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 12,
+    },
+    textContainer: {
+        flex: 1,
+    },
+    typeLabel: {
+        color: '#A78BFA',
+        textTransform: 'capitalize',
+        fontSize: 10,
+    },
+});

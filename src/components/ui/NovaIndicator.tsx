@@ -8,7 +8,6 @@ interface NovaIndicatorProps {
 }
 
 export function NovaIndicator({ group }: NovaIndicatorProps) {
-    // 1: Green, 2: Yellow, 3: Orange, 4: Red (Purple in new design)
     const getGroupColor = (g: number) => {
         switch (g) {
             case 1: return theme.colors.natural;
@@ -23,8 +22,8 @@ export function NovaIndicator({ group }: NovaIndicatorProps) {
     const labels = ["Unprocessed", "Processed Ingredients", "Processed", "Ultra-Processed"];
 
     return (
-        <View className="w-full">
-            <View className="flex-row justify-between mb-2 gap-1 h-3">
+        <View style={styles.container}>
+            <View style={styles.segmentRow}>
                 {[1, 2, 3, 4].map((step) => (
                     <View
                         key={step}
@@ -38,9 +37,9 @@ export function NovaIndicator({ group }: NovaIndicatorProps) {
                     />
                 ))}
             </View>
-            <View className="flex-column justify-between items-center">
-                <Caption className="text-xs">NOVA Group-{group}</Caption>
-                <Body className="font-bold text-xs" style={{ color: activeColor }}>
+            <View style={styles.labelContainer}>
+                <Caption style={styles.groupLabel}>NOVA Group-{group}</Caption>
+                <Body style={[styles.statusLabel, { color: activeColor }]}>
                     {labels[group - 1] || 'Unknown'}
                 </Body>
             </View>
@@ -49,8 +48,30 @@ export function NovaIndicator({ group }: NovaIndicatorProps) {
 }
 
 const styles = StyleSheet.create({
+    container: {
+        width: '100%',
+    },
+    segmentRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 8,
+        gap: 4,
+        height: 12,
+    },
     segment: {
         flex: 1,
         borderRadius: 4,
-    }
+    },
+    labelContainer: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    groupLabel: {
+        fontSize: 12,
+    },
+    statusLabel: {
+        fontWeight: '700',
+        fontSize: 12,
+    },
 });

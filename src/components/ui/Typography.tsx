@@ -1,18 +1,17 @@
 import React from 'react';
-import { Text, TextProps } from 'react-native';
+import { Text, TextProps, StyleSheet, TextStyle, StyleProp } from 'react-native';
 import { useTheme } from '../../providers/ThemeProvider';
 
 interface TypographyProps extends TextProps {
-    className?: string;
     children: React.ReactNode;
+    style?: StyleProp<TextStyle>;
 }
 
-export const H1 = ({ className = '', style, children, ...props }: TypographyProps) => {
+export const H1 = ({ style, children, ...props }: TypographyProps) => {
     const { theme } = useTheme();
     return (
         <Text
-            className={`font-display text-4xl mb-2 ${className}`}
-            style={[{ color: theme.colors.foreground }, style]}
+            style={[styles.h1, { color: theme.colors.foreground, fontFamily: theme.fonts.display }, style]}
             {...props}
         >
             {children}
@@ -20,12 +19,11 @@ export const H1 = ({ className = '', style, children, ...props }: TypographyProp
     );
 };
 
-export const H2 = ({ className = '', style, children, ...props }: TypographyProps) => {
+export const H2 = ({ style, children, ...props }: TypographyProps) => {
     const { theme } = useTheme();
     return (
         <Text
-            className={`font-display text-2xl mb-2 ${className}`}
-            style={[{ color: theme.colors.foreground }, style]}
+            style={[styles.h2, { color: theme.colors.foreground, fontFamily: theme.fonts.display }, style]}
             {...props}
         >
             {children}
@@ -33,12 +31,11 @@ export const H2 = ({ className = '', style, children, ...props }: TypographyProp
     );
 };
 
-export const H3 = ({ className = '', style, children, ...props }: TypographyProps) => {
+export const H3 = ({ style, children, ...props }: TypographyProps) => {
     const { theme } = useTheme();
     return (
         <Text
-            className={`font-display text-xl mb-1 ${className}`}
-            style={[{ color: theme.colors.foreground }, style]}
+            style={[styles.h3, { color: theme.colors.foreground, fontFamily: theme.fonts.display }, style]}
             {...props}
         >
             {children}
@@ -46,12 +43,11 @@ export const H3 = ({ className = '', style, children, ...props }: TypographyProp
     );
 };
 
-export const Body = ({ className = '', style, children, ...props }: TypographyProps) => {
+export const Body = ({ style, children, ...props }: TypographyProps) => {
     const { theme } = useTheme();
     return (
         <Text
-            className={`font-body text-base ${className}`}
-            style={[{ color: theme.colors.foreground, opacity: 0.8 }, style]}
+            style={[styles.body, { color: theme.colors.foreground, fontFamily: theme.fonts.body }, style]}
             {...props}
         >
             {children}
@@ -59,12 +55,11 @@ export const Body = ({ className = '', style, children, ...props }: TypographyPr
     );
 };
 
-export const BodyBold = ({ className = '', style, children, ...props }: TypographyProps) => {
+export const BodyBold = ({ style, children, ...props }: TypographyProps) => {
     const { theme } = useTheme();
     return (
         <Text
-            className={`font-body-bold text-base ${className}`}
-            style={[{ color: theme.colors.foreground }, style]}
+            style={[styles.bodyBold, { color: theme.colors.foreground, fontFamily: theme.fonts.bodyBold }, style]}
             {...props}
         >
             {children}
@@ -72,12 +67,11 @@ export const BodyBold = ({ className = '', style, children, ...props }: Typograp
     );
 };
 
-export const Caption = ({ className = '', style, children, ...props }: TypographyProps) => {
+export const Caption = ({ style, children, ...props }: TypographyProps) => {
     const { theme } = useTheme();
     return (
         <Text
-            className={`font-body text-sm ${className}`}
-            style={[{ color: theme.colors.muted }, style]}
+            style={[styles.caption, { color: theme.colors.muted, fontFamily: theme.fonts.body }, style]}
             {...props}
         >
             {children}
@@ -85,3 +79,31 @@ export const Caption = ({ className = '', style, children, ...props }: Typograph
     );
 };
 
+const styles = StyleSheet.create({
+    h1: {
+        fontSize: 36,
+        marginBottom: 8,
+        fontWeight: '700',
+    } as TextStyle,
+    h2: {
+        fontSize: 24,
+        marginBottom: 8,
+        fontWeight: '700',
+    } as TextStyle,
+    h3: {
+        fontSize: 20,
+        marginBottom: 4,
+        fontWeight: '700',
+    } as TextStyle,
+    body: {
+        fontSize: 16,
+        opacity: 0.8,
+    } as TextStyle,
+    bodyBold: {
+        fontSize: 16,
+        fontWeight: '700',
+    } as TextStyle,
+    caption: {
+        fontSize: 14,
+    } as TextStyle,
+});

@@ -1,13 +1,10 @@
 import React from 'react';
-import { Pressable, Text, ActivityIndicator } from 'react-native';
+import { Pressable, Text, ActivityIndicator, View, StyleSheet, ViewStyle, TextStyle, StyleProp } from 'react-native';
 import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
-import { styled } from 'nativewind';
 import { useTheme } from '../../providers/ThemeProvider';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
-const StyledText = styled(Text);
 
-// Define variants
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'destructive';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
@@ -19,7 +16,7 @@ interface ButtonProps {
     icon?: React.ReactNode;
     loading?: boolean;
     disabled?: boolean;
-    className?: string;
+    style?: StyleProp<ViewStyle>;
 }
 
 export function Button({
@@ -30,8 +27,9 @@ export function Button({
     icon,
     loading = false,
     disabled = false,
-    className = ''
+    style
 }: ButtonProps) {
+    const { theme, isDark } = useTheme();
     const scale = useSharedValue(1);
 
     const handlePressIn = () => {
@@ -47,46 +45,68 @@ export function Button({
         transform: [{ scale: scale.value }]
     }));
 
-    // Variant Styles
-    const getBaseStyles = () => {
-        let base = "flex-row items-center justify-center rounded-2xl";
-
+    const getVariantStyles = (): ViewStyle => {
         switch (variant) {
-            case 'primary': return `${base} bg-primary border border-primary/10 shadow-sm shadow-primary/20`;
-            case 'secondary': return `${base} bg-surface border border-border`;
-            case 'outline': return `${base} bg-transparent border border-border`;
-            case 'ghost': return `${base} bg-transparent`;
-            case 'destructive': return `${base} bg-accent border border-accent/10`;
-            default: return base;
+            case 'primary':
+                return {
+                    backgroundColor: theme.colors.primary,
+                    borderColor: 'rgba(13, 148, 136, 0.1)',
+                    borderWidth: 1,
+                };
+            case 'secondary':
+                return {
+                    backgroundColor: theme.colors.surface,
+                    borderColor: theme.colors.border,
+                    borderWidth: 1,
+                };
+            case 'outline':
+                return {
+                    backgroundColor: 'transparent',
+                    borderColor: theme.colors.border,
+                    borderWidth: 1,
+                };
+            case 'ghost':
+                return {
+                    backgroundColor: 'transparent',
+                };
+            case 'destructive':
+                return {
+                    backgroundColor: theme.colors.danger,
+                    borderColor: 'rgba(239, 68, 68, 0.1)',
+                    borderWidth: 1,
+                };
+            default:
+                return {};
         }
     };
 
-    const getSizeStyles = () => {
+    const getSizeStyles = (): ViewStyle => {
         switch (size) {
-            case 'sm': return "px-3 py-2";
-            case 'md': return "px-5 py-3.5";
-            case 'lg': return "px-8 py-4";
-            default: return "px-5 py-3.5";
+            case 'sm': return { paddingHorizontal: 12, paddingVertical: 8 };
+            case 'md': return { paddingHorizontal: 20, paddingVertical: 14 };
+            case 'lg': return { paddingHorizontal: 32, paddingVertical: 16 };
+            default: return { paddingHorizontal: 20, paddingVertical: 14 };
         }
     };
 
-    // Text Styles
-    const getTextStyles = () => {
-        let base = "font-body-bold text-center";
-
-        switch (size) {
-            case 'sm': base += " text-sm"; break;
-            case 'md': base += " text-base"; break;
-            case 'lg': base += " text-lg"; break;
-        }
-
+    const getTextColor = (): string => {
         switch (variant) {
-            case 'primary': return `${base} text-white`;
-            case 'secondary': return `${base} text-foreground dark:text-white`;
-            case 'outline': return `${base} text-foreground dark:text-white`;
-            case 'ghost': return `${base} text-muted`;
-            case 'destructive': return `${base} text-white`;
-            default: return base;
+            case 'primary':
+            case 'destructive':
+                return '#FFFFFF';
+            case 'ghost':
+                return theme.colors.muted;
+            default:
+                return theme.colors.foreground;
+        }
+    };
+
+    const getTextSize = (): number => {
+        switch (size) {
+            case 'sm': return 14;
+            case 'md': return 16;
+            case 'lg': return 18;
+            default: return 16;
         }
     };
 
@@ -95,17 +115,47 @@ export function Button({
             onPress={disabled || loading ? undefined : onPress}
             onPressIn={handlePressIn}
             onPressOut={handlePressOut}
-            className={`${getBaseStyles()} ${getSizeStyles()} ${disabled ? 'opacity-50' : ''} ${className}`}
-            style={animatedStyle}
+            style={[
+                styles.button,
+                getVariantStyles(),
+                getSizeStyles(),
+                disabled && styles.disabled,
+                animatedStyle,
+                style,
+            ]}
         >
             {loading ? (
                 <ActivityIndicator color={variant === 'primary' || variant === 'destructive' ? 'white' : '#71717A'} />
             ) : (
                 <>
-                    {icon && <Animated.View className="mr-2">{icon}</Animated.View>}
-                    <StyledText className={getTextStyles()}>{title}</StyledText>
+                    {icon && <View style={styles.iconContainer}>{icon}</View>}
+                    <Text style={[
+                        styles.text,
+                        { color: getTextColor(), fontSize: getTextSize(), fontFamily: theme.fonts.bodyBold }
+                    ]}>
+                        {title}
+                    </Text>
                 </>
             )}
         </AnimatedPressable>
     );
 }
+
+const styles = StyleSheet.create({
+    button: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 16,
+    },
+    disabled: {
+        opacity: 0.5,
+    },
+    iconContainer: {
+        marginRight: 8,
+    },
+    text: {
+        fontWeight: '700',
+        textAlign: 'center',
+    },
+});

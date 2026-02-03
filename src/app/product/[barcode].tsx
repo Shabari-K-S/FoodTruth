@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Share, ScrollView } from 'react-native';
+import { View, Image, Share, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { getProductByBarcode } from '../../services/openFoodFacts';
 import { Product } from '../../types/openFoodFacts';
@@ -10,7 +10,7 @@ import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import { Ionicons } from '@expo/vector-icons';
 import { theme } from '../../theme';
-import { ActivityIndicator } from 'react-native';
+import { useTheme } from '../../providers/ThemeProvider';
 
 // Health & Nutrition Components
 import { ProductBadge } from '../../components/ui/ProductBadge';
@@ -34,6 +34,7 @@ import { getCachedProduct, cacheProduct } from '../../services/productCache';
 export default function ProductDetailsScreen() {
     const { barcode } = useLocalSearchParams<{ barcode: string }>();
     const router = useRouter();
+    const { theme: themeColors, isDark } = useTheme();
     const [loading, setLoading] = useState(true);
     const [loadingMessage, setLoadingMessage] = useState('Checking cache...');
     const [product, setProduct] = useState<Product | null>(null);
@@ -54,7 +55,6 @@ export default function ProductDetailsScreen() {
         setLoading(true);
         setError('');
 
-        // 1. Check cache first
         setLoadingMessage('Checking cache...');
         const cached = await getCachedProduct(code);
         if (cached) {
@@ -64,13 +64,11 @@ export default function ProductDetailsScreen() {
             return;
         }
 
-        // 2. Fetch from API
         setLoadingMessage('Fetching from Open Food Facts...');
         const result = await getProductByBarcode(code);
         if (result.found && result.status === 'found') {
             setProduct(result.data);
             addToHistory(code, result.data);
-            // 3. Cache the result
             await cacheProduct(code, result.data);
         } else {
             setError('Product not found');
@@ -91,21 +89,23 @@ export default function ProductDetailsScreen() {
 
     if (loading) {
         return (
-            <View className="flex-1 bg-zinc-50 dark:bg-black justify-center items-center p-8">
+            <View style={[styles.loadingContainer, { backgroundColor: isDark ? '#000' : '#FAFAFA' }]}>
                 <ActivityIndicator size="large" color={theme.colors.primary} />
-                <Body className="text-zinc-500 mt-4 text-center">Fetching product details...</Body>
-                <Caption className="text-zinc-400 mt-2 text-center">{loadingMessage}</Caption>
+                <Body style={styles.loadingText}>Fetching product details...</Body>
+                <Caption style={styles.loadingSubtext}>{loadingMessage}</Caption>
             </View>
         );
     }
 
     if (error || !product) {
         return (
-            <ScreenLayout className="justify-center items-center p-8">
-                <Ionicons name="alert-circle-outline" size={64} color={theme.colors.danger} />
-                <H2 className="mt-4 text-center">Product Not Found</H2>
-                <Body className="text-zinc-400 mt-2 text-center">Barcode: {barcode}</Body>
-                <Button title="Go Home" onPress={() => router.replace('/(tabs)')} variant="outline" className="mt-4" />
+            <ScreenLayout>
+                <View style={styles.errorContainer}>
+                    <Ionicons name="alert-circle-outline" size={64} color={theme.colors.danger} />
+                    <H2 style={styles.errorTitle}>Product Not Found</H2>
+                    <Body style={styles.errorBarcode}>Barcode: {barcode}</Body>
+                    <Button title="Go Home" onPress={() => router.replace('/(tabs)')} variant="outline" />
+                </View>
             </ScreenLayout>
         );
     }
@@ -115,113 +115,106 @@ export default function ProductDetailsScreen() {
     return (
         <ScreenLayout padding="none" edges={['top']}>
             {/* Sticky Header Actions */}
-            <View className="w-full flex-row justify-between bg-white dark:bg-zinc-900 -mb-20 z-50 mt-10">
+            <View style={[styles.headerActions, { backgroundColor: isDark ? '#18181B' : '#FFFFFF' }]}>
                 <Button
                     title=""
-                    icon={<Ionicons name="arrow-back" size={24} color={theme.colors.foreground} />}
+                    icon={<Ionicons name="arrow-back" size={24} color={themeColors.colors.foreground} />}
                     onPress={() => router.back()}
                     variant="ghost"
-                    className="bg-white/80 dark:bg-zinc-800/80 rounded-full w-12 h-12 p-0 items-center justify-center shadow-sm"
+                    style={[styles.actionButton, { backgroundColor: isDark ? 'rgba(39,39,42,0.8)' : 'rgba(255,255,255,0.8)' }]}
                 />
                 <Button
                     title=""
-                    icon={<Ionicons name="share-outline" size={24} color={theme.colors.foreground} />}
+                    icon={<Ionicons name="share-outline" size={24} color={themeColors.colors.foreground} />}
                     onPress={handleShare}
                     variant="ghost"
-                    className="bg-white/80 dark:bg-zinc-800/80 rounded-full w-12 h-12 p-0 items-center justify-center shadow-sm"
+                    style={[styles.actionButton, { backgroundColor: isDark ? 'rgba(39,39,42,0.8)' : 'rgba(255,255,255,0.8)' }]}
                 />
             </View>
 
             <ScrollView>
                 {/* ===== HEADER SECTION ===== */}
-                <View className="bg-white dark:bg-zinc-900 rounded-b-[40px] shadow-sm pb-10 pt-20 px-6">
-                    <View className="items-center">
+                <View style={[styles.headerSection, { backgroundColor: isDark ? '#18181B' : '#FFFFFF' }]}>
+                    <View style={styles.productHeader}>
                         <Image
                             source={{ uri: product.image_url }}
-                            className="w-48 h-48 rounded-2xl mb-6 shadow-sm bg-white"
+                            style={styles.productImage}
                             resizeMode="contain"
                         />
-                        <H2 className="text-center text-3xl mb-1 text-zinc-900 dark:text-zinc-50 font-display tracking-tight">
+                        <H2 style={[styles.productName, { color: isDark ? '#FAFAFA' : '#18181B' }]}>
                             {product.product_name}
                         </H2>
-                        <Body className="text-center text-zinc-500 mb-2 font-body tracking-wide uppercase text-xs">
+                        <Body style={styles.brandName}>
                             {product.brands}
                         </Body>
-                        <Caption className="text-zinc-400 text-[10px]">Barcode: {product.code}</Caption>
+                        <Caption style={styles.barcodeText}>Barcode: {product.code}</Caption>
                     </View>
 
                     {/* Primary Scores Row */}
-                    <View className="flex-row justify-center items-center gap-6 mt-6 w-full px-2">
-                        {/* Nutri-Score Hexagon */}
-                        <View className="items-center flex-1">
+                    <View style={styles.scoresRow}>
+                        <View style={styles.scoreItem}>
                             <ProductBadge grade={healthScore} size={64} />
-                            <Caption className="mt-2 text-zinc-400 text-[10px] uppercase tracking-wider">Nutri-Score</Caption>
+                            <Caption style={styles.scoreLabel}>Nutri-Score</Caption>
                         </View>
 
-                        <View className="w-[1px] h-12 bg-zinc-200 dark:bg-zinc-800" />
+                        <View style={[styles.scoreDivider, { backgroundColor: isDark ? '#27272A' : '#E5E7EB' }]} />
 
-                        {/* NOVA Indicator */}
-                        <View className="items-center flex-1">
+                        <View style={styles.scoreItem}>
                             <NovaIndicator group={product.nova_group || 0} />
-                            <Caption className="mt-2 text-zinc-400 text-[10px] uppercase tracking-wider">Processing</Caption>
+                            <Caption style={styles.scoreLabel}>Processing</Caption>
                         </View>
                     </View>
 
                     {/* Secondary Metrics Grid */}
-                    <View className="flex-row flex-wrap justify-between mt-8 gap-3 w-full">
-                        <View className="flex-1 bg-zinc-50 dark:bg-zinc-800/50 p-3 rounded-2xl items-center border border-zinc-100 dark:border-zinc-800 min-w-[30%]">
+                    <View style={styles.metricsGrid}>
+                        <View style={[styles.metricCard, { backgroundColor: isDark ? 'rgba(39,39,42,0.5)' : '#FAFAFA', borderColor: isDark ? '#27272A' : '#F4F4F5' }]}>
                             <Ionicons name="leaf" size={20} color={['a', 'b'].includes(product.ecoscore_grade || '') ? theme.colors.natural : theme.colors.caution} />
-                            <BodyBold className="mt-2 text-sm capitalize">
+                            <BodyBold style={styles.metricValue}>
                                 {product.ecoscore_grade && product.ecoscore_grade !== 'not-applicable'
                                     ? `Eco ${product.ecoscore_grade.toUpperCase()}`
                                     : 'N/A'}
                             </BodyBold>
-                            <Caption className="text-[10px] text-zinc-400 uppercase">Eco-Score</Caption>
+                            <Caption style={styles.metricLabel}>Eco-Score</Caption>
                         </View>
 
-                        <View className="flex-1 bg-zinc-50 dark:bg-zinc-800/50 p-3 rounded-2xl items-center border border-zinc-100 dark:border-zinc-800 min-w-[30%]">
+                        <View style={[styles.metricCard, { backgroundColor: isDark ? 'rgba(39,39,42,0.5)' : '#FAFAFA', borderColor: isDark ? '#27272A' : '#F4F4F5' }]}>
                             <Ionicons name="flask" size={20} color={(product.additives_n || 0) > 0 ? theme.colors.caution : theme.colors.natural} />
-                            <BodyBold className="mt-2 text-sm">{product.additives_n || 0}</BodyBold>
-                            <Caption className="text-[10px] text-zinc-400 uppercase">Additives</Caption>
+                            <BodyBold style={styles.metricValue}>{product.additives_n || 0}</BodyBold>
+                            <Caption style={styles.metricLabel}>Additives</Caption>
                         </View>
 
-                        <View className="flex-1 bg-zinc-50 dark:bg-zinc-800/50 p-3 rounded-2xl items-center border border-zinc-100 dark:border-zinc-800 min-w-[30%]">
+                        <View style={[styles.metricCard, { backgroundColor: isDark ? 'rgba(39,39,42,0.5)' : '#FAFAFA', borderColor: isDark ? '#27272A' : '#F4F4F5' }]}>
                             <Ionicons name="warning" size={20} color={(product.allergens_tags?.length || 0) > 0 ? theme.colors.danger : theme.colors.muted} />
-                            <BodyBold className="mt-2 text-sm">{product.allergens_tags?.length || 0}</BodyBold>
-                            <Caption className="text-[10px] text-zinc-400 uppercase">Allergens</Caption>
+                            <BodyBold style={styles.metricValue}>{product.allergens_tags?.length || 0}</BodyBold>
+                            <Caption style={styles.metricLabel}>Allergens</Caption>
                         </View>
                     </View>
                 </View>
 
                 {/* ===== DETAILED SECTIONS ===== */}
-                <View className="px-5 mt-6">
-
-                    {/* 1. NUTRIENT LEVELS (Fat, Sugar, Salt indicators) */}
+                <View style={styles.detailsContainer}>
                     <NutrientLevels
                         levels={product.nutrient_levels}
                         nutriments={product.nutriments}
                     />
 
-                    {/* 2. INGREDIENTS ANALYSIS (Vegan, Vegetarian, Palm Oil) */}
                     <IngredientsAnalysis tags={product.ingredients_analysis_tags} />
 
-                    {/* 3. NOVA MARKERS (Why ultra-processed?) */}
                     <NovaMarkers
                         novaGroup={product.nova_group}
                         markers={product.nova_groups_markers}
                     />
 
-                    {/* 4. INGREDIENTS LIST */}
-                    <Card variant="flat" className="mb-6 bg-zinc-100 dark:bg-zinc-900/50 p-5">
-                        <H3 className="mb-4 text-zinc-800 dark:text-zinc-200">
+                    {/* Ingredients List */}
+                    <Card variant="flat" padding="lg" style={styles.ingredientsCard}>
+                        <H3 style={[styles.sectionTitle, { color: isDark ? '#E5E7EB' : '#27272A' }]}>
                             Ingredients ({product.ingredients?.length || 'N/A'})
                         </H3>
-                        <Body className="leading-7 text-zinc-600 dark:text-zinc-400 text-sm font-body">
+                        <Body style={styles.ingredientsText}>
                             {product.ingredients_text || 'No ingredient data available.'}
                         </Body>
                     </Card>
 
-                    {/* 5. ALLERGENS (Detailed) */}
                     <AllergensDisplay
                         allergens={product.allergens}
                         allergensTags={product.allergens_tags}
@@ -229,22 +222,18 @@ export default function ProductDetailsScreen() {
                         tracesTags={product.traces_tags}
                     />
 
-                    {/* 6. ADDITIVES (Detailed list) */}
                     <AdditivesList
                         additives={product.additives_tags}
                         count={product.additives_n}
                     />
 
-                    {/* 7. FULL NUTRITION TABLE */}
                     <ExtendedNutrition
                         nutriments={product.nutriments}
                         nutrientLevels={product.nutrient_levels}
                     />
 
-                    {/* 8. PACKAGING & ENVIRONMENT */}
                     <PackagingInfo packaging={product.packaging as any} packagings={product.packagings} />
 
-                    {/* 9. PRODUCT METADATA */}
                     <ProductMetadata
                         categories={product.categories}
                         categoriesTags={product.categories_tags}
@@ -258,14 +247,14 @@ export default function ProductDetailsScreen() {
                     />
 
                     {/* DATA SOURCE FOOTER */}
-                    <View className="bg-zinc-100 dark:bg-zinc-900/50 p-4 rounded-2xl mb-8">
-                        <Caption className="text-center text-zinc-400 text-[10px]">
+                    <View style={[styles.footer, { backgroundColor: isDark ? 'rgba(24,24,27,0.5)' : '#F4F4F5' }]}>
+                        <Caption style={styles.footerText}>
                             Data provided by Open Food Facts
                         </Caption>
-                        <Caption className="text-center text-zinc-400 text-[10px] mt-1">
+                        <Caption style={styles.footerText}>
                             Last updated: {new Date((product.last_modified_t || 0) * 1000).toLocaleDateString()}
                         </Caption>
-                        <Caption className="text-center text-zinc-300 text-[10px] mt-1">
+                        <Caption style={styles.footerText}>
                             Product added: {new Date((product.created_t || 0) * 1000).toLocaleDateString()}
                         </Caption>
                     </View>
@@ -274,3 +263,175 @@ export default function ProductDetailsScreen() {
         </ScreenLayout>
     );
 }
+
+const styles = StyleSheet.create({
+    loadingContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 32,
+    },
+    loadingText: {
+        color: '#71717A',
+        marginTop: 16,
+        textAlign: 'center',
+    },
+    loadingSubtext: {
+        color: '#A1A1AA',
+        marginTop: 8,
+        textAlign: 'center',
+    },
+    errorContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 32,
+    },
+    errorTitle: {
+        marginTop: 16,
+        textAlign: 'center',
+    },
+    errorBarcode: {
+        color: '#A1A1AA',
+        marginTop: 8,
+        textAlign: 'center',
+        marginBottom: 16,
+    },
+    headerActions: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: -80,
+        zIndex: 50,
+        marginTop: 40,
+        paddingHorizontal: 16,
+    },
+    actionButton: {
+        borderRadius: 24,
+        width: 48,
+        height: 48,
+        padding: 0,
+        alignItems: 'center',
+        justifyContent: 'center',
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+        elevation: 2,
+    },
+    headerSection: {
+        borderBottomLeftRadius: 40,
+        borderBottomRightRadius: 40,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.05,
+        shadowRadius: 4,
+        elevation: 1,
+        paddingBottom: 40,
+        paddingTop: 80,
+        paddingHorizontal: 24,
+    },
+    productHeader: {
+        alignItems: 'center',
+    },
+    productImage: {
+        width: 192,
+        height: 192,
+        borderRadius: 16,
+        marginBottom: 24,
+        backgroundColor: '#FFFFFF',
+    },
+    productName: {
+        textAlign: 'center',
+        fontSize: 30,
+        marginBottom: 4,
+        letterSpacing: -0.5,
+    },
+    brandName: {
+        textAlign: 'center',
+        color: '#71717A',
+        marginBottom: 8,
+        letterSpacing: 1,
+        textTransform: 'uppercase',
+        fontSize: 12,
+    },
+    barcodeText: {
+        color: '#A1A1AA',
+        fontSize: 10,
+    },
+    scoresRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 24,
+        marginTop: 24,
+        width: '100%',
+        paddingHorizontal: 8,
+    },
+    scoreItem: {
+        alignItems: 'center',
+        flex: 1,
+    },
+    scoreDivider: {
+        width: 1,
+        height: 48,
+    },
+    scoreLabel: {
+        marginTop: 8,
+        color: '#A1A1AA',
+        fontSize: 10,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+    },
+    metricsGrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        marginTop: 32,
+        gap: 12,
+        width: '100%',
+    },
+    metricCard: {
+        flex: 1,
+        padding: 12,
+        borderRadius: 16,
+        alignItems: 'center',
+        borderWidth: 1,
+        minWidth: '30%',
+    },
+    metricValue: {
+        marginTop: 8,
+        fontSize: 14,
+    },
+    metricLabel: {
+        fontSize: 10,
+        color: '#A1A1AA',
+        textTransform: 'uppercase',
+    },
+    detailsContainer: {
+        paddingHorizontal: 20,
+        marginTop: 24,
+    },
+    ingredientsCard: {
+        marginBottom: 24,
+    },
+    sectionTitle: {
+        marginBottom: 16,
+    },
+    ingredientsText: {
+        lineHeight: 28,
+        color: '#52525B',
+        fontSize: 14,
+    },
+    footer: {
+        padding: 16,
+        borderRadius: 16,
+        marginBottom: 32,
+    },
+    footerText: {
+        textAlign: 'center',
+        color: '#A1A1AA',
+        fontSize: 10,
+        marginTop: 4,
+    },
+});

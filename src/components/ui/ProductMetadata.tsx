@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { H3, Body, Caption, BodyBold } from './Typography';
+import { H3, Body, Caption } from './Typography';
 import { theme } from '../../theme';
+import { useTheme } from '../../providers/ThemeProvider';
 
 interface ProductMetadataProps {
     categories?: string;
@@ -27,6 +28,7 @@ export function ProductMetadata({
     brands,
     quantity
 }: ProductMetadataProps) {
+    const { isDark } = useTheme();
 
     const formatTag = (tag: string) => {
         return tag
@@ -39,20 +41,29 @@ export function ProductMetadata({
     const MetaRow = ({ icon, label, value }: { icon: string; label: string; value?: string }) => {
         if (!value) return null;
         return (
-            <View className="flex-row items-start py-2 border-b border-zinc-100 dark:border-zinc-800 last:border-0">
+            <View style={[
+                styles.row,
+                { borderBottomColor: isDark ? '#27272A' : '#F4F4F5' }
+            ]}>
                 <Ionicons name={icon as any} size={16} color={theme.colors.muted} style={{ marginTop: 2 }} />
-                <View className="ml-3 flex-1">
-                    <Caption className="text-zinc-400 text-[10px] uppercase tracking-wider">{label}</Caption>
-                    <Body className="text-zinc-700 dark:text-zinc-300 mt-0.5">{value}</Body>
+                <View style={styles.rowContent}>
+                    <Caption style={styles.rowLabel}>{label}</Caption>
+                    <Body style={{ color: isDark ? '#D4D4D8' : '#3F3F46', marginTop: 2 }}>{value}</Body>
                 </View>
             </View>
         );
     };
 
     return (
-        <View className="mb-6">
-            <H3 className="mb-3 text-zinc-900 dark:text-zinc-100">Product Information</H3>
-            <View className="bg-zinc-50 dark:bg-zinc-900/50 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+        <View style={styles.container}>
+            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Product Information</H3>
+            <View style={[
+                styles.card,
+                {
+                    backgroundColor: isDark ? 'rgba(24, 24, 27, 0.5)' : '#FAFAFA',
+                    borderColor: isDark ? '#27272A' : '#F4F4F5',
+                }
+            ]}>
                 <MetaRow icon="pricetag" label="Category" value={categories} />
                 <MetaRow icon="globe" label="Origin" value={origins} />
                 <MetaRow icon="location" label="Countries Sold" value={countries} />
@@ -61,19 +72,22 @@ export function ProductMetadata({
 
                 {/* Labels/Certifications */}
                 {(labels || labelsTags?.length) && (
-                    <View className="mt-3 pt-3 border-t border-zinc-200 dark:border-zinc-700">
-                        <Caption className="text-zinc-400 text-[10px] uppercase tracking-wider mb-2">
+                    <View style={[styles.labelsSection, { borderTopColor: isDark ? '#3F3F46' : '#E5E7EB' }]}>
+                        <Caption style={styles.labelsTitle}>
                             Labels & Certifications
                         </Caption>
-                        <View className="flex-row flex-wrap gap-2">
+                        <View style={styles.tagContainer}>
                             {labelsTags?.map((tag, i) => (
-                                <View key={i} className="bg-emerald-100 dark:bg-emerald-900/30 px-3 py-1.5 rounded-full">
-                                    <Caption className="text-emerald-700 dark:text-emerald-300 font-bold">
+                                <View key={i} style={[
+                                    styles.tag,
+                                    { backgroundColor: isDark ? 'rgba(16, 185, 129, 0.3)' : '#D1FAE5' }
+                                ]}>
+                                    <Caption style={[styles.tagText, { color: isDark ? '#6EE7B7' : '#047857' }]}>
                                         {formatTag(tag)}
                                     </Caption>
                                 </View>
                             )) || (
-                                    <Body className="text-zinc-600">{labels}</Body>
+                                    <Body style={{ color: '#52525B' }}>{labels}</Body>
                                 )}
                         </View>
                     </View>
@@ -82,3 +96,58 @@ export function ProductMetadata({
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 24,
+    },
+    title: {
+        marginBottom: 12,
+    },
+    card: {
+        padding: 16,
+        borderRadius: 16,
+        borderWidth: 1,
+    },
+    row: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        paddingVertical: 8,
+        borderBottomWidth: 1,
+    },
+    rowContent: {
+        marginLeft: 12,
+        flex: 1,
+    },
+    rowLabel: {
+        color: '#A1A1AA',
+        fontSize: 10,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+    },
+    labelsSection: {
+        marginTop: 12,
+        paddingTop: 12,
+        borderTopWidth: 1,
+    },
+    labelsTitle: {
+        color: '#A1A1AA',
+        fontSize: 10,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        marginBottom: 8,
+    },
+    tagContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8,
+    },
+    tag: {
+        paddingHorizontal: 12,
+        paddingVertical: 6,
+        borderRadius: 999,
+    },
+    tagText: {
+        fontWeight: '700',
+    },
+});

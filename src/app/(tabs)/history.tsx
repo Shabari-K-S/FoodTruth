@@ -5,7 +5,8 @@ import {
     TouchableOpacity,
     FlatList,
     Pressable,
-    Dimensions
+    Dimensions,
+    StyleSheet
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useHistory } from '../../providers/HistoryProvider';
@@ -14,83 +15,81 @@ import { H1, Body, Caption } from '../../components/ui/Typography';
 import { Card } from '../../components/ui/Card';
 import { Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../../providers/ThemeProvider';
-import { theme } from '../../theme';
+import { theme as appTheme } from '../../theme';
+import { Product } from '../../types/openFoodFacts';
+
+interface HistoryItemData {
+    barcode: string;
+    timestamp: number;
+    product?: Product;
+}
 
 const { width } = Dimensions.get('window');
 
-// Clean History Item - No borders, pure spacing
-const HistoryItem = ({ item, onPress }: { item: any; onPress: () => void }) => {
-    const { theme } = useTheme();
+const HistoryItem = ({ item, onPress }: { item: HistoryItemData; onPress: () => void }) => {
+    const { theme, isDark } = useTheme();
 
-    // Clean health score badge (minimal pill design)
     const getScoreStyle = (score: number) => {
-        if (score >= 80) return { bg: '#DCfce7', color: '#166534', text: 'Clean' };
+        if (score >= 80) return { bg: '#DCFCE7', color: '#166534', text: 'Clean' };
         if (score >= 60) return { bg: '#FEF3C7', color: '#92400E', text: 'Fair' };
-        if (score >= 40) return { bg: '#FFedd5', color: '#C2410C', text: 'Caution' };
+        if (score >= 40) return { bg: '#FFEDD5', color: '#C2410C', text: 'Caution' };
         return { bg: '#FEE2E2', color: '#DC2626', text: 'Avoid' };
     };
 
-    // Extract score from product data or mock
     const score = item.product?.nova_group || item.product?.nutriscore_score || 30;
-    const badge = getScoreStyle(100 - (score * 10)); // Invert because lower NOVA is better
+    const badge = getScoreStyle(100 - (score * 10));
 
     const time = new Date(item.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
     return (
         <Pressable
             onPress={onPress}
-            className="flex-row items-center py-3 active:opacity-60"
-            style={{ paddingHorizontal: 4 }}
+            style={styles.historyItem}
         >
-            {/* Clean Image Container */}
-            <View className="w-16 h-16 rounded-2xl bg-surface overflow-hidden mr-4 border border-border/10">
+            <View style={[
+                styles.imageContainer,
+                { backgroundColor: theme.colors.surface, borderColor: isDark ? '#27272A' : '#F4F4F5' }
+            ]}>
                 {item.product?.image_url ? (
                     <Image
                         source={{ uri: item.product.image_url }}
-                        className="w-full h-full"
-                        style={{ resizeMode: 'cover' }}
+                        style={styles.productImage}
+                        resizeMode="cover"
                     />
                 ) : (
-                    <View className="w-full h-full items-center justify-center bg-muted/10">
+                    <View style={[styles.placeholderImage, { backgroundColor: isDark ? '#27272A' : '#F5F5F5' }]}>
                         <Ionicons name="nutrition-outline" size={24} color={theme.colors.muted} />
                     </View>
                 )}
             </View>
 
-            {/* Content Stack */}
-            <View className="flex-1 justify-center">
-                <Body className="text-base font-semibold text-foreground mb-1" numberOfLines={1}>
+            <View style={styles.contentStack}>
+                <Body style={[styles.productName, { color: theme.colors.foreground }]} numberOfLines={1}>
                     {item.product?.product_name || 'Unknown Product'}
                 </Body>
 
-                <Caption className="text-muted mb-2" numberOfLines={1}>
+                <Caption style={styles.brandName} numberOfLines={1}>
                     {item.product?.brands || 'Unknown brand'}
                 </Caption>
 
-                {/* Row: Badge + Time */}
-                <View className="flex-row items-center">
-                    <View
-                        className="px-2.5 py-1 rounded-full mr-3"
-                        style={{ backgroundColor: badge.bg }}
-                    >
-                        <Caption style={{ color: badge.color }} className="text-xs font-bold uppercase tracking-wide">
+                <View style={styles.badgeRow}>
+                    <View style={[styles.scoreBadge, { backgroundColor: badge.bg }]}>
+                        <Caption style={[styles.scoreBadgeText, { color: badge.color }]}>
                             {badge.text}
                         </Caption>
                     </View>
-                    <Caption className="text-xs text-muted/60 font-medium">
-                        {time}
-                    </Caption>
+                    <Caption style={styles.timeText}>{time}</Caption>
                 </View>
             </View>
 
-            {/* Subtle Arrow */}
             <Ionicons name="chevron-forward" size={18} color={theme.colors.muted} style={{ opacity: 0.4 }} />
         </Pressable>
     );
 };
 
-// Section Header - Clean minimal style
 const SectionHeader = ({ date }: { date: string }) => {
+    const { theme } = useTheme();
+
     const getLabel = () => {
         const today = new Date().toDateString();
         const yesterday = new Date(Date.now() - 86400000).toDateString();
@@ -100,36 +99,31 @@ const SectionHeader = ({ date }: { date: string }) => {
     };
 
     return (
-        <View className="flex-row items-center mb-3 mt-6 px-1">
-            <View className="h-2 w-2 rounded-full bg-primary mr-2" />
-            <Caption className="text-xs font-bold text-muted uppercase tracking-widest">
-                {getLabel()}
-            </Caption>
+        <View style={styles.sectionHeader}>
+            <View style={[styles.sectionDot, { backgroundColor: theme.colors.primary }]} />
+            <Caption style={styles.sectionTitle}>{getLabel()}</Caption>
         </View>
     );
 };
 
-// Empty State
 const EmptyState = ({ onScan }: { onScan: () => void }) => (
-    <View className="flex-1 justify-center items-center px-8 min-h-[400px]">
-        <View className="w-24 h-24 rounded-3xl bg-primary/5 items-center justify-center mb-6">
-            <Ionicons name="scan-outline" size={32} color={theme.colors.primary} />
+    <View style={styles.emptyContainer}>
+        <View style={styles.emptyIcon}>
+            <Ionicons name="scan-outline" size={32} color={appTheme.colors.primary} />
         </View>
 
-        <Body className="text-lg font-semibold mb-2 text-center">
-            No scans yet
-        </Body>
-        <Caption className="text-muted text-center mb-8 leading-5">
+        <Body style={styles.emptyTitle}>No scans yet</Body>
+        <Caption style={styles.emptySubtitle}>
             Start scanning products to build your nutrition history
         </Caption>
 
         <TouchableOpacity
             onPress={onScan}
-            className="bg-primary px-8 py-3.5 rounded-full flex-row items-center"
+            style={styles.scanButton}
             activeOpacity={0.8}
         >
             <Ionicons name="scan" size={18} color="white" />
-            <Body className="text-white font-semibold ml-2">Scan Product</Body>
+            <Body style={styles.scanButtonText}>Scan Product</Body>
         </TouchableOpacity>
     </View>
 );
@@ -137,20 +131,19 @@ const EmptyState = ({ onScan }: { onScan: () => void }) => (
 export default function HistoryScreen() {
     const { history, clearHistory } = useHistory();
     const router = useRouter();
-    const { theme } = useTheme();
+    const { theme, isDark } = useTheme();
     const [searchQuery, setSearchQuery] = useState('');
 
-    // Group by date
     const sections = useMemo(() => {
-        const filtered = history.filter(item => {
+        const filtered = history.filter((item: HistoryItemData) => {
             const name = item.product?.product_name?.toLowerCase() || '';
             const brand = item.product?.brands?.toLowerCase() || '';
             const query = searchQuery.toLowerCase();
             return name.includes(query) || brand.includes(query);
         });
 
-        const groups: { [key: string]: any[] } = {};
-        filtered.forEach(item => {
+        const groups: { [key: string]: HistoryItemData[] } = {};
+        filtered.forEach((item: HistoryItemData) => {
             const dateKey = new Date(item.timestamp).toDateString();
             if (!groups[dateKey]) groups[dateKey] = [];
             groups[dateKey].push(item);
@@ -168,43 +161,42 @@ export default function HistoryScreen() {
     const uniqueDays = new Set(history.map(h => new Date(h.timestamp).toDateString())).size;
 
     return (
-        <ScreenLayout className="flex-1 bg-background" scrollable={false} edges={['top']}>
-            {/* Clean Header */}
-            <View className="px-5 pt-2 pb-4 flex-row justify-between items-end">
+        <ScreenLayout scrollable={false} edges={['top']}>
+            {/* Header */}
+            <View style={styles.header}>
                 <View>
-                    <Caption className="text-primary font-semibold text-xs uppercase tracking-wider mb-1">
-                        FoodTruth
-                    </Caption>
-                    <H1 className="text-2xl font-bold">History</H1>
+                    <Caption style={[styles.appName, { color: theme.colors.primary }]}>FoodTruth</Caption>
+                    <H1 style={styles.title}>History</H1>
                 </View>
 
                 {totalScans > 0 && (
                     <TouchableOpacity onPress={clearHistory} hitSlop={{ top: 20, right: 20, bottom: 20, left: 20 }}>
-                        <Caption className="text-destructive font-medium opacity-80">Clear</Caption>
+                        <Caption style={styles.clearButton}>Clear</Caption>
                     </TouchableOpacity>
                 )}
             </View>
 
-            {/* Minimal Search */}
+            {/* Search */}
             {totalScans > 0 && (
-                <View className="px-5 mb-6">
-                    <View className="flex-row items-center bg-surface rounded-2xl px-4 h-12 border border-border/10">
+                <View style={styles.searchContainer}>
+                    <View style={[
+                        styles.searchBox,
+                        { backgroundColor: theme.colors.surface, borderColor: isDark ? '#27272A' : '#F4F4F5' }
+                    ]}>
                         <Ionicons name="search-outline" size={18} color={theme.colors.muted} />
-                        <View className="flex-1 ml-3">
-                            {!searchQuery ? (
-                                <Caption className="text-muted">Search your scans...</Caption>
-                            ) : null}
-                            {/* Invisible input overlay for functionality */}
+                        <View style={styles.searchInput}>
+                            {!searchQuery && (
+                                <Caption style={{ color: theme.colors.muted }}>Search your scans...</Caption>
+                            )}
                         </View>
                     </View>
 
-                    {/* Minimal Stats */}
-                    <View className="flex-row mt-3 space-x-4 px-1">
-                        <Caption className="text-xs text-muted">
-                            <Caption className="text-foreground font-bold">{totalScans}</Caption> scans
+                    <View style={styles.statsRow}>
+                        <Caption style={styles.statText}>
+                            <Caption style={[styles.statValue, { color: theme.colors.foreground }]}>{totalScans}</Caption> scans
                         </Caption>
-                        <Caption className="text-xs text-muted">
-                            <Caption className="text-foreground font-bold">{uniqueDays}</Caption> days
+                        <Caption style={[styles.statText, { marginLeft: 16 }]}>
+                            <Caption style={[styles.statValue, { color: theme.colors.foreground }]}>{uniqueDays}</Caption> days
                         </Caption>
                     </View>
                 </View>
@@ -218,12 +210,11 @@ export default function HistoryScreen() {
                     data={sections}
                     keyExtractor={(item) => item.date}
                     renderItem={({ item: section }) => (
-                        <View className="px-5 mb-2">
+                        <View style={styles.sectionContainer}>
                             <SectionHeader date={section.date} />
 
-                            {/* Clean Card - No internal borders */}
-                            <Card className="p-4 bg-surface" style={{ borderRadius: 20 }}>
-                                {section.items.map((item, idx) => (
+                            <Card padding="md" style={{ borderRadius: 20 }}>
+                                {section.items.map((item: HistoryItemData, idx: number) => (
                                     <View key={`${item.barcode}-${item.timestamp}`}>
                                         <HistoryItem
                                             item={item}
@@ -232,9 +223,11 @@ export default function HistoryScreen() {
                                                 params: { barcode: item.barcode }
                                             })}
                                         />
-                                        {/* Subtle divider line only between items, not after last */}
                                         {idx < section.items.length - 1 && (
-                                            <View className="h-px bg-border/10 ml-20" />
+                                            <View style={[
+                                                styles.divider,
+                                                { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }
+                                            ]} />
                                         )}
                                     </View>
                                 ))}
@@ -248,3 +241,182 @@ export default function HistoryScreen() {
         </ScreenLayout>
     );
 }
+
+const styles = StyleSheet.create({
+    header: {
+        paddingHorizontal: 20,
+        paddingTop: 8,
+        paddingBottom: 16,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+    },
+    appName: {
+        fontWeight: '600',
+        fontSize: 12,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        marginBottom: 4,
+    },
+    title: {
+        fontSize: 24,
+        fontWeight: '700',
+    },
+    clearButton: {
+        color: '#EF4444',
+        fontWeight: '500',
+        opacity: 0.8,
+    },
+    searchContainer: {
+        paddingHorizontal: 20,
+        marginBottom: 24,
+    },
+    searchBox: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderRadius: 16,
+        paddingHorizontal: 16,
+        height: 48,
+        borderWidth: 1,
+    },
+    searchInput: {
+        flex: 1,
+        marginLeft: 12,
+    },
+    statsRow: {
+        flexDirection: 'row',
+        marginTop: 12,
+        paddingHorizontal: 4,
+    },
+    statText: {
+        fontSize: 12,
+    },
+    statValue: {
+        fontWeight: '700',
+    },
+    sectionContainer: {
+        paddingHorizontal: 20,
+        marginBottom: 8,
+    },
+    sectionHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 12,
+        marginTop: 24,
+        paddingHorizontal: 4,
+    },
+    sectionDot: {
+        height: 8,
+        width: 8,
+        borderRadius: 4,
+        marginRight: 8,
+    },
+    sectionTitle: {
+        fontSize: 12,
+        fontWeight: '700',
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        color: '#71717A',
+    },
+    historyItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 4,
+    },
+    imageContainer: {
+        width: 64,
+        height: 64,
+        borderRadius: 16,
+        overflow: 'hidden',
+        marginRight: 16,
+        borderWidth: 1,
+    },
+    productImage: {
+        width: '100%',
+        height: '100%',
+    },
+    placeholderImage: {
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    contentStack: {
+        flex: 1,
+        justifyContent: 'center',
+    },
+    productName: {
+        fontSize: 16,
+        fontWeight: '600',
+        marginBottom: 4,
+    },
+    brandName: {
+        marginBottom: 8,
+    },
+    badgeRow: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    scoreBadge: {
+        paddingHorizontal: 10,
+        paddingVertical: 4,
+        borderRadius: 999,
+        marginRight: 12,
+    },
+    scoreBadgeText: {
+        fontSize: 12,
+        fontWeight: '700',
+        textTransform: 'uppercase',
+        letterSpacing: 0.5,
+    },
+    timeText: {
+        fontSize: 12,
+        opacity: 0.6,
+        fontWeight: '500',
+    },
+    divider: {
+        height: 1,
+        marginLeft: 80,
+    },
+    emptyContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 32,
+        minHeight: 400,
+    },
+    emptyIcon: {
+        width: 96,
+        height: 96,
+        borderRadius: 24,
+        backgroundColor: 'rgba(13, 148, 136, 0.05)',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 24,
+    },
+    emptyTitle: {
+        fontSize: 18,
+        fontWeight: '600',
+        marginBottom: 8,
+        textAlign: 'center',
+    },
+    emptySubtitle: {
+        textAlign: 'center',
+        marginBottom: 32,
+        lineHeight: 20,
+    },
+    scanButton: {
+        backgroundColor: '#0D9488',
+        paddingHorizontal: 32,
+        paddingVertical: 14,
+        borderRadius: 999,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    scanButtonText: {
+        color: '#FFFFFF',
+        fontWeight: '600',
+        marginLeft: 8,
+    },
+});

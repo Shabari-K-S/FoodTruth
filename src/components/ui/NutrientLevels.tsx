@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { H3, Body, Caption, BodyBold } from './Typography';
+import { H3, Body, Caption } from './Typography';
 import { theme } from '../../theme';
+import { useTheme } from '../../providers/ThemeProvider';
 
 interface NutrientLevelsProps {
     levels?: {
@@ -26,6 +27,8 @@ const LEVEL_CONFIG = {
 };
 
 export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
+    const { isDark } = useTheme();
+
     if (!levels) return null;
 
     const nutrients = [
@@ -36,9 +39,15 @@ export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
     ];
 
     return (
-        <View className="mb-6">
-            <H3 className="mb-3 text-zinc-900 dark:text-zinc-100">Nutrient Levels</H3>
-            <View className="bg-zinc-50 dark:bg-zinc-900/50 p-4 rounded-2xl border border-zinc-100 dark:border-zinc-800">
+        <View style={styles.container}>
+            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Nutrient Levels</H3>
+            <View style={[
+                styles.card,
+                {
+                    backgroundColor: isDark ? 'rgba(24, 24, 27, 0.5)' : '#FAFAFA',
+                    borderColor: isDark ? '#27272A' : '#F4F4F5',
+                }
+            ]}>
                 {nutrients.map((nutrient, index) => {
                     const level = levels[nutrient.key as keyof typeof levels];
                     if (!level) return null;
@@ -48,30 +57,32 @@ export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
                     return (
                         <View
                             key={nutrient.key}
-                            className={`flex-row items-center justify-between py-3 ${index < nutrients.length - 1 ? 'border-b border-zinc-100 dark:border-zinc-800' : ''}`}
+                            style={[
+                                styles.row,
+                                index < nutrients.length - 1 && {
+                                    borderBottomWidth: 1,
+                                    borderBottomColor: isDark ? '#27272A' : '#F4F4F5',
+                                }
+                            ]}
                         >
-                            <View className="flex-row items-center">
+                            <View style={styles.leftContent}>
                                 <Ionicons
                                     name={config.icon as any}
                                     size={20}
                                     color={config.color}
                                 />
-                                <Body className="ml-3 text-zinc-700 dark:text-zinc-300">{nutrient.label}</Body>
+                                <Body style={[styles.label, { color: isDark ? '#D4D4D8' : '#3F3F46' }]}>
+                                    {nutrient.label}
+                                </Body>
                             </View>
-                            <View className="flex-row items-center">
+                            <View style={styles.rightContent}>
                                 {nutrient.value !== undefined && (
-                                    <Caption className="text-zinc-400 mr-3">
+                                    <Caption style={styles.valueText}>
                                         {nutrient.value.toFixed(1)}{nutrient.unit}
                                     </Caption>
                                 )}
-                                <View
-                                    className="px-3 py-1 rounded-full"
-                                    style={{ backgroundColor: config.color + '20' }}
-                                >
-                                    <Caption
-                                        className="font-bold text-[10px] uppercase"
-                                        style={{ color: config.color }}
-                                    >
+                                <View style={[styles.badge, { backgroundColor: config.color + '20' }]}>
+                                    <Caption style={[styles.badgeText, { color: config.color }]}>
                                         {config.text}
                                     </Caption>
                                 </View>
@@ -83,3 +94,48 @@ export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 24,
+    },
+    title: {
+        marginBottom: 12,
+    },
+    card: {
+        padding: 16,
+        borderRadius: 16,
+        borderWidth: 1,
+    },
+    row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        paddingVertical: 12,
+    },
+    leftContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    label: {
+        marginLeft: 12,
+    },
+    rightContent: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    valueText: {
+        color: '#A1A1AA',
+        marginRight: 12,
+    },
+    badge: {
+        paddingHorizontal: 12,
+        paddingVertical: 4,
+        borderRadius: 999,
+    },
+    badgeText: {
+        fontWeight: '700',
+        fontSize: 10,
+        textTransform: 'uppercase',
+    },
+});

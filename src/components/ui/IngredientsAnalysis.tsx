@@ -1,15 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { H3, Body, Caption } from './Typography';
+import { H3, Caption } from './Typography';
 import { theme } from '../../theme';
+import { useTheme } from '../../providers/ThemeProvider';
 
 interface IngredientsAnalysisProps {
     tags?: string[];
-    // e.g. ["en:palm-oil-free", "en:vegan", "en:vegetarian"]
 }
 
 export function IngredientsAnalysis({ tags }: IngredientsAnalysisProps) {
+    const { isDark } = useTheme();
+
     if (!tags || tags.length === 0) return null;
 
     const getStatus = (key: string) => {
@@ -30,31 +32,37 @@ export function IngredientsAnalysis({ tags }: IngredientsAnalysisProps) {
         let text = 'Unknown';
 
         if (status === 'yes' || status === 'free') {
-            color = theme.colors.primary; // Sage
+            color = theme.colors.primary;
             icon = 'checkmark-circle-outline';
             text = positive;
         } else if (status === 'no' || status === 'present') {
-            color = theme.colors.danger; // Coral
+            color = theme.colors.danger;
             icon = 'alert-circle-outline';
             text = negative;
         } else if (status === 'maybe') {
-            color = theme.colors.caution; // Goldenrod
+            color = theme.colors.caution;
             icon = 'help-circle-outline';
             text = `Maybe ${positive}`;
         }
 
         return (
-            <View className="flex-row items-center bg-zinc-50 dark:bg-zinc-800/50 px-3 py-2 rounded-full border border-zinc-100 dark:border-zinc-800 mr-2 mb-2">
+            <View style={[
+                styles.tag,
+                {
+                    backgroundColor: isDark ? 'rgba(39, 39, 42, 0.5)' : '#FAFAFA',
+                    borderColor: isDark ? '#27272A' : '#F4F4F5',
+                }
+            ]}>
                 <Ionicons name={icon} size={16} color={color} style={{ marginRight: 6 }} />
-                <Caption style={{ color: color, fontWeight: 'bold' }}>{text}</Caption>
+                <Caption style={{ color: color, fontWeight: '700' }}>{text}</Caption>
             </View>
         );
     };
 
     return (
-        <View className="mb-6">
-            <H3 className="mb-3 text-zinc-900 dark:text-zinc-100">Dietary Analysis</H3>
-            <View className="flex-row flex-wrap">
+        <View style={styles.container}>
+            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Dietary Analysis</H3>
+            <View style={styles.tagContainer}>
                 {renderTag('Vegan', vegan, 'Vegan', 'Non-Vegan')}
                 {renderTag('Vegetarian', vegetarian, 'Vegetarian', 'Non-Vegetarian')}
                 {renderTag('Palm Oil', palmOil, 'Palm Oil Free', 'Contains Palm Oil')}
@@ -62,3 +70,26 @@ export function IngredientsAnalysis({ tags }: IngredientsAnalysisProps) {
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginBottom: 24,
+    },
+    title: {
+        marginBottom: 12,
+    },
+    tagContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+    },
+    tag: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        borderRadius: 999,
+        borderWidth: 1,
+        marginRight: 8,
+        marginBottom: 8,
+    },
+});

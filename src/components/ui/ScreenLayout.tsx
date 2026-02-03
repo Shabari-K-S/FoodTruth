@@ -1,7 +1,6 @@
 import React from 'react';
-import { View, ScrollView, ViewProps } from 'react-native';
+import { View, ScrollView, ViewProps, StyleSheet, StyleProp, ViewStyle } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { styled } from 'nativewind';
 import { StatusBar } from 'expo-status-bar';
 import { useTheme } from '../../providers/ThemeProvider';
 
@@ -11,8 +10,7 @@ interface ScreenLayoutProps extends ViewProps {
     header?: React.ReactNode;
     scrollable?: boolean;
     edges?: ('top' | 'right' | 'bottom' | 'left')[];
-    padding?: 'none' | 'standard'; // Simplified padding options
-    className?: string; // Add className support
+    padding?: 'none' | 'standard';
 }
 
 export function ScreenLayout({
@@ -21,24 +19,25 @@ export function ScreenLayout({
     scrollable = true,
     edges = ['top'],
     padding = 'standard',
-    className = '',
+    style,
     ...props
 }: ScreenLayoutProps) {
     const { theme, isDark } = useTheme();
     const ContentWrapper = scrollable ? ScrollView : View;
-    const paddingClass = padding === 'standard' ? 'px-4' : ''; // Standard 16px padding
+    const paddingHorizontal = padding === 'standard' ? 16 : 0;
 
     return (
-        <View className="flex-1" style={{ backgroundColor: theme.colors.canvas }}>
+        <View style={[styles.container, { backgroundColor: theme.colors.canvas }]}>
             <StatusBar style={isDark ? 'light' : 'dark'} />
-            <SafeAreaView edges={edges} className="flex-1">
+            <SafeAreaView edges={edges} style={styles.container}>
                 {header}
                 <ContentWrapper
-                    className={`flex-1 ${className}`}
+                    style={[styles.container, style]}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={scrollable ? { paddingBottom: 120 } : undefined}
+                    {...props}
                 >
-                    <View className={paddingClass}>
+                    <View style={{ paddingHorizontal }}>
                         {children}
                     </View>
                 </ContentWrapper>
@@ -47,3 +46,8 @@ export function ScreenLayout({
     );
 }
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+    },
+});
