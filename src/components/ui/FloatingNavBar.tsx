@@ -2,20 +2,18 @@ import React from 'react';
 import {
     View,
     TouchableOpacity,
-    StyleSheet,
-    useColorScheme
+    StyleSheet
 } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, usePathname } from 'expo-router';
 import * as Haptics from 'expo-haptics';
-import { theme } from '../../theme';
+import { useTheme } from '../../providers/ThemeProvider';
 
 export function FloatingNavBar() {
     const router = useRouter();
     const pathname = usePathname();
-    const colorScheme = useColorScheme();
-    const isDark = colorScheme === 'dark';
+    const { theme, isDark } = useTheme();
 
     const handlePress = (route: string) => {
         Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -56,7 +54,7 @@ export function FloatingNavBar() {
                             size={24}
                             color={isActive('/history') ? theme.colors.primary : colors.inactiveIcon}
                         />
-                        {isActive('/history') && <View style={styles.activeDot} />}
+                        {isActive('/history') && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
                     </TouchableOpacity>
 
                     {/* Home (Center) */}
@@ -70,7 +68,7 @@ export function FloatingNavBar() {
                             size={24}
                             color={isActive('/') ? theme.colors.primary : colors.inactiveIcon}
                         />
-                        {isActive('/') && <View style={styles.activeDot} />}
+                        {isActive('/') && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
                     </TouchableOpacity>
 
                     {/* Profile/Settings */}
@@ -84,7 +82,7 @@ export function FloatingNavBar() {
                             size={24}
                             color={isActive('/settings') ? theme.colors.primary : colors.inactiveIcon}
                         />
-                        {isActive('/settings') && <View style={styles.activeDot} />}
+                        {isActive('/settings') && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
                     </TouchableOpacity>
                 </View>
             </BlurView>
@@ -136,6 +134,5 @@ const styles = StyleSheet.create({
         width: 4,
         height: 4,
         borderRadius: 2,
-        backgroundColor: theme.colors.primary,
     }
 });

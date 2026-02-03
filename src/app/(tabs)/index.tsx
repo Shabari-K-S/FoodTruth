@@ -7,8 +7,7 @@ import {
     Keyboard,
     KeyboardAvoidingView,
     Platform,
-    ScrollView,
-    useColorScheme
+    ScrollView
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -16,13 +15,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { FloatingNavBar } from '../../components/ui/FloatingNavBar';
 import { H1, H2, Body, Caption } from '../../components/ui/Typography';
-import { theme } from '../../theme';
+import { useTheme } from '../../providers/ThemeProvider';
 
 export default function HomeScreen() {
     const router = useRouter();
     const insets = useSafeAreaInsets();
-    const colorScheme = useColorScheme();
-    const isDark = colorScheme === 'dark';
+    const { theme, isDark } = useTheme();
 
     const [eanInput, setEanInput] = useState('');
 
@@ -43,14 +41,14 @@ export default function HomeScreen() {
 
     // Dynamic colors based on theme
     const colors = {
-        bg: isDark ? '#000000' : '#FAFAFA', // zinc-50
-        textPrimary: isDark ? '#F4F4F5' : '#18181B', // zinc-100 : zinc-900
-        textSecondary: isDark ? '#A1A1AA' : '#71717A', // zinc-400 : zinc-500
-        textMuted: isDark ? '#71717A' : '#A1A1AA', // zinc-500 : zinc-400
-        border: isDark ? '#27272A' : '#E4E4E7', // zinc-800 : zinc-200
-        inputBg: isDark ? '#18181B' : '#FFFFFF', // zinc-900 : white
-        placeholder: isDark ? '#52525B' : '#A1A1AA', // zinc-600 : zinc-400
-        divider: isDark ? '#27272A' : '#E4E4E7', // zinc-800 : zinc-200
+        bg: theme.colors.canvas,
+        textPrimary: theme.colors.foreground,
+        textSecondary: theme.colors.muted,
+        textMuted: isDark ? '#71717A' : '#A1A1AA', // Keep variations if needed or map to theme
+        border: theme.colors.border,
+        inputBg: theme.colors.surface,
+        placeholder: isDark ? '#52525B' : '#A1A1AA',
+        divider: theme.colors.border,
     };
 
     return (
@@ -79,7 +77,7 @@ export default function HomeScreen() {
                 >
                     {/* Header */}
                     <View style={styles.header}>
-                        <Caption style={[styles.brandLabel, { color: colors.textMuted }]}>
+                        <Caption style={[styles.brandLabel, { color: colors.textSecondary }]}>
                             FoodTruth
                         </Caption>
                         <H1 style={[styles.title, { color: colors.textPrimary }]}>
@@ -106,7 +104,7 @@ export default function HomeScreen() {
                             </LinearGradient>
                         </TouchableOpacity>
 
-                        <Caption style={[styles.hint, { color: colors.textMuted }]}>
+                        <Caption style={[styles.hint, { color: colors.textSecondary }]}>
                             Point your camera at any product barcode
                         </Caption>
                     </View>
@@ -115,7 +113,7 @@ export default function HomeScreen() {
                     <View style={styles.inputContainer}>
                         <View style={styles.dividerRow}>
                             <View style={[styles.dividerLine, { backgroundColor: colors.divider }]} />
-                            <Caption style={[styles.dividerText, { color: colors.textMuted }]}>
+                            <Caption style={[styles.dividerText, { color: colors.textSecondary }]}>
                                 or enter manually
                             </Caption>
                             <View style={[styles.dividerLine, { backgroundColor: colors.divider }]} />
@@ -126,7 +124,7 @@ export default function HomeScreen() {
                             {
                                 backgroundColor: colors.inputBg,
                                 borderColor: colors.border,
-                                shadowColor: isDark ? '#000' : '#000',
+                                shadowColor: '#000',
                                 shadowOpacity: isDark ? 0.3 : 0.05,
                             }
                         ]}>
