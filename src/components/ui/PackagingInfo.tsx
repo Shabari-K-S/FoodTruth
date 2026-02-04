@@ -21,7 +21,7 @@ interface PackagingInfoProps {
 }
 
 export function PackagingInfo({ packaging, packagings }: PackagingInfoProps) {
-    const { isDark } = useTheme();
+    const { theme } = useTheme();
     const parts: PackagingPart[] = packagings || packaging?.packagings || packaging?.parts || [];
 
     const formatMaterial = (material?: string) => {
@@ -55,12 +55,12 @@ export function PackagingInfo({ packaging, packagings }: PackagingInfoProps) {
         if (typeof packaging === 'string' && packaging) {
             return (
                 <View style={styles.container}>
-                    <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Packaging</H3>
+                    <H3 style={[styles.title, { color: theme.colors.foreground }]}>Packaging</H3>
                     <View style={[
                         styles.card,
                         {
-                            backgroundColor: isDark ? 'rgba(24, 24, 27, 0.5)' : '#FAFAFA',
-                            borderColor: isDark ? '#27272A' : '#F4F4F5',
+                            backgroundColor: theme.colors.surfaceAlt,
+                            borderColor: theme.colors.border,
                         }
                     ]}>
                         <Body>{packaging}</Body>
@@ -73,12 +73,12 @@ export function PackagingInfo({ packaging, packagings }: PackagingInfoProps) {
 
     return (
         <View style={styles.container}>
-            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Packaging & Environment</H3>
+            <H3 style={[styles.title, { color: theme.colors.foreground }]}>Packaging & Environment</H3>
             <View style={[
                 styles.card,
                 {
-                    backgroundColor: isDark ? 'rgba(24, 24, 27, 0.5)' : '#FAFAFA',
-                    borderColor: isDark ? '#27272A' : '#F4F4F5',
+                    backgroundColor: theme.colors.surfaceAlt,
+                    borderColor: theme.colors.border,
                 }
             ]}>
                 {parts.map((part, index) => {
@@ -92,17 +92,17 @@ export function PackagingInfo({ packaging, packagings }: PackagingInfoProps) {
                                 styles.row,
                                 index < parts.length - 1 && {
                                     borderBottomWidth: 1,
-                                    borderBottomColor: isDark ? '#27272A' : '#F4F4F5',
+                                    borderBottomColor: theme.colors.border,
                                 }
                             ]}
                         >
                             <View style={styles.leftContent}>
                                 <Ionicons name="cube-outline" size={20} color={theme.colors.muted} style={{ marginRight: 12 }} />
                                 <View style={styles.textContent}>
-                                    <BodyBold style={{ color: isDark ? '#E5E7EB' : '#3F3F46' }}>
+                                    <BodyBold style={{ color: theme.colors.foreground }}>
                                         {formatShape(part.shape)}
                                     </BodyBold>
-                                    <Caption style={{ color: '#A1A1AA' }}>
+                                    <Caption style={{ color: theme.colors.muted }}>
                                         {formatMaterial(part.material)}
                                         {part.quantity_per_unit && ` • ${part.quantity_per_unit}`}
                                     </Caption>
@@ -112,13 +112,13 @@ export function PackagingInfo({ packaging, packagings }: PackagingInfoProps) {
                                 {recyclingText && (
                                     <View style={styles.recyclingRow}>
                                         <Ionicons name="refresh-circle" size={14} color={theme.colors.primary} style={{ marginRight: 4 }} />
-                                        <Caption style={styles.recyclingText}>
+                                        <Caption style={[styles.recyclingText, { color: theme.colors.primary }]}>
                                             {recyclingText}
                                         </Caption>
                                     </View>
                                 )}
                                 {weight && (
-                                    <Caption style={styles.weightText}>{weight}g</Caption>
+                                    <Caption style={[styles.weightText, { color: theme.colors.muted }]}>{weight}g</Caption>
                                 )}
                             </View>
                         </View>

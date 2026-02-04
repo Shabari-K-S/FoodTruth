@@ -139,20 +139,14 @@ const SectionHeader = ({ title, theme }: any) => (
     </View>
 );
 
+import { usePreferences } from '../../providers/PreferencesProvider';
+
+// ... (keep Toggle and SettingRow components as is) ...
+
 export default function SettingsScreen() {
     const router = useRouter();
     const { theme, isDark, setDarkMode } = useTheme();
-    const [preferences, setPreferences] = useState({
-        vegetarian: false,
-        vegan: false,
-        glutenFree: false,
-        notifications: true,
-        dataSync: true,
-    });
-
-    const toggle = (key: keyof typeof preferences) => {
-        setPreferences(prev => ({ ...prev, [key]: !prev[key] }));
-    };
+    const { preferences, togglePreference } = usePreferences();
 
     const dietaryOptions = [
         { label: "Vegetarian", description: "Hide non-vegetarian products", icon: "leaf-outline", key: "vegetarian" },
@@ -197,8 +191,8 @@ export default function SettingsScreen() {
                                 label={item.label}
                                 description={item.description}
                                 icon={item.icon}
-                                value={preferences[item.key as keyof typeof preferences]}
-                                onValueChange={() => toggle(item.key as keyof typeof preferences)}
+                                value={(preferences as any)[item.key]}
+                                onValueChange={() => togglePreference(item.key as any)}
                                 theme={theme}
                                 isDark={isDark}
                                 isLast={index === dietaryOptions.length - 1}
@@ -209,19 +203,16 @@ export default function SettingsScreen() {
                     {/* App Settings */}
                     <SectionHeader title="App Settings" theme={theme} />
                     <Card padding="none" style={[{ overflow: 'hidden', marginBottom: 16 }]}>
-                        {appSettings.map((item, index) => (
-                            <SettingRow
-                                key={item.key}
-                                label={item.label}
-                                description={item.description}
-                                icon={item.icon}
-                                value={item.key === 'darkMode' ? isDark : preferences[item.key as keyof typeof preferences]}
-                                onValueChange={item.onChange || (() => toggle(item.key as keyof typeof preferences))}
-                                theme={theme}
-                                isDark={isDark}
-                                isLast={index === appSettings.length - 1}
-                            />
-                        ))}
+                        <SettingRow
+                            label="Dark Mode"
+                            description="Easier on the eyes at night"
+                            icon="moon-outline"
+                            value={isDark}
+                            onValueChange={() => setDarkMode(!isDark)}
+                            theme={theme}
+                            isDark={isDark}
+                            isLast={true}
+                        />
                     </Card>
 
                     {/* Footer */}

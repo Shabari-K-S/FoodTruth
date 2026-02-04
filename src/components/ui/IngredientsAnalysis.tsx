@@ -10,7 +10,7 @@ interface IngredientsAnalysisProps {
 }
 
 export function IngredientsAnalysis({ tags }: IngredientsAnalysisProps) {
-    const { isDark } = useTheme();
+    const { theme } = useTheme();
 
     if (!tags || tags.length === 0) return null;
 
@@ -49,8 +49,8 @@ export function IngredientsAnalysis({ tags }: IngredientsAnalysisProps) {
             <View style={[
                 styles.tag,
                 {
-                    backgroundColor: isDark ? 'rgba(39, 39, 42, 0.5)' : '#FAFAFA',
-                    borderColor: isDark ? '#27272A' : '#F4F4F5',
+                    backgroundColor: theme.colors.surfaceAlt,
+                    borderColor: theme.colors.border,
                 }
             ]}>
                 <Ionicons name={icon} size={16} color={color} style={{ marginRight: 6 }} />
@@ -61,7 +61,7 @@ export function IngredientsAnalysis({ tags }: IngredientsAnalysisProps) {
 
     return (
         <View style={styles.container}>
-            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Dietary Analysis</H3>
+            <H3 style={[styles.title, { color: theme.colors.foreground }]}>Dietary Analysis</H3>
             <View style={styles.tagContainer}>
                 {renderTag('Vegan', vegan, 'Vegan', 'Non-Vegan')}
                 {renderTag('Vegetarian', vegetarian, 'Vegetarian', 'Non-Vegetarian')}

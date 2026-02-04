@@ -28,7 +28,7 @@ export function ProductMetadata({
     brands,
     quantity
 }: ProductMetadataProps) {
-    const { isDark } = useTheme();
+    const { theme } = useTheme();
 
     const formatTag = (tag: string) => {
         return tag
@@ -43,12 +43,12 @@ export function ProductMetadata({
         return (
             <View style={[
                 styles.row,
-                { borderBottomColor: isDark ? '#27272A' : '#F4F4F5' }
+                { borderBottomColor: theme.colors.border }
             ]}>
                 <Ionicons name={icon as any} size={16} color={theme.colors.muted} style={{ marginTop: 2 }} />
                 <View style={styles.rowContent}>
                     <Caption style={styles.rowLabel}>{label}</Caption>
-                    <Body style={{ color: isDark ? '#D4D4D8' : '#3F3F46', marginTop: 2 }}>{value}</Body>
+                    <Body style={{ color: theme.colors.foreground, marginTop: 2 }}>{value}</Body>
                 </View>
             </View>
         );
@@ -56,12 +56,12 @@ export function ProductMetadata({
 
     return (
         <View style={styles.container}>
-            <H3 style={[styles.title, { color: isDark ? '#F4F4F5' : '#18181B' }]}>Product Information</H3>
+            <H3 style={[styles.title, { color: theme.colors.foreground }]}>Product Information</H3>
             <View style={[
                 styles.card,
                 {
-                    backgroundColor: isDark ? 'rgba(24, 24, 27, 0.5)' : '#FAFAFA',
-                    borderColor: isDark ? '#27272A' : '#F4F4F5',
+                    backgroundColor: theme.colors.surfaceAlt,
+                    borderColor: theme.colors.border,
                 }
             ]}>
                 <MetaRow icon="pricetag" label="Category" value={categories} />
@@ -71,8 +71,8 @@ export function ProductMetadata({
                 <MetaRow icon="cube" label="Quantity" value={quantity} />
 
                 {/* Labels/Certifications */}
-                {(labels || labelsTags?.length) && (
-                    <View style={[styles.labelsSection, { borderTopColor: isDark ? '#3F3F46' : '#E5E7EB' }]}>
+                {(!!labels || (labelsTags?.length ?? 0) > 0) && (
+                    <View style={[styles.labelsSection, { borderTopColor: theme.colors.border }]}>
                         <Caption style={styles.labelsTitle}>
                             Labels & Certifications
                         </Caption>
@@ -80,14 +80,14 @@ export function ProductMetadata({
                             {labelsTags?.map((tag, i) => (
                                 <View key={i} style={[
                                     styles.tag,
-                                    { backgroundColor: isDark ? 'rgba(16, 185, 129, 0.3)' : '#D1FAE5' }
+                                    { backgroundColor: theme.colors.natural + '20' }
                                 ]}>
-                                    <Caption style={[styles.tagText, { color: isDark ? '#6EE7B7' : '#047857' }]}>
+                                    <Caption style={[styles.tagText, { color: theme.colors.natural }]}>
                                         {formatTag(tag)}
                                     </Caption>
                                 </View>
                             )) || (
-                                    <Body style={{ color: '#52525B' }}>{labels}</Body>
+                                    <Body style={{ color: theme.colors.foreground }}>{labels}</Body>
                                 )}
                         </View>
                     </View>

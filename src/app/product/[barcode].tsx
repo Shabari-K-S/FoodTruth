@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Image, Share, ScrollView, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Image, Share, ScrollView, StyleSheet, ActivityIndicator, Pressable } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { getProductByBarcode } from '../../services/openFoodFacts';
 import { Product } from '../../types/openFoodFacts';
@@ -8,7 +8,7 @@ import { ScreenLayout } from '../../components/ui/ScreenLayout';
 import { H2, H3, Body, BodyBold, Caption } from '../../components/ui/Typography';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { theme } from '../../theme';
 import { useTheme } from '../../providers/ThemeProvider';
 
@@ -31,14 +31,55 @@ import { ProductMetadata } from '../../components/ui/ProductMetadata';
 // Cache
 import { getCachedProduct, cacheProduct } from '../../services/productCache';
 
+import { usePreferences } from '../../providers/PreferencesProvider';
+
 export default function ProductDetailsScreen() {
     const { barcode } = useLocalSearchParams<{ barcode: string }>();
     const router = useRouter();
     const { theme: themeColors, isDark } = useTheme();
+    const { preferences } = usePreferences();
+    // Force rebuild
     const [loading, setLoading] = useState(true);
     const [loadingMessage, setLoadingMessage] = useState('Checking cache...');
     const [product, setProduct] = useState<Product | null>(null);
     const [error, setError] = useState('');
+    const [dietWarnings, setDietWarnings] = useState<string[]>([]);
+
+    useEffect(() => {
+        if (product) {
+            checkDietaryPreferences(product);
+        }
+    }, [product, preferences]);
+
+    const checkDietaryPreferences = (prod: Product) => {
+        const warnings: string[] = [];
+        const tags = prod.ingredients_analysis_tags || [];
+        const allergens = prod.allergens_tags || [];
+
+        // Check Vegetarian
+        if (preferences.vegetarian) {
+            const isNonVeg = tags.some(t => t.includes('non-vegetarian'));
+            const isUnknown = tags.some(t => t.includes('vegetarian-status-unknown'));
+            if (isNonVeg) warnings.push('⚠️ Contains Non-Vegetarian Ingredients');
+            else if (isUnknown) warnings.push('❓ Vegetarian Status Unknown');
+        }
+
+        // Check Vegan
+        if (preferences.vegan) {
+            const isNonVegan = tags.some(t => t.includes('non-vegan'));
+            const isUnknown = tags.some(t => t.includes('vegan-status-unknown'));
+            if (isNonVegan) warnings.push('⚠️ Contains Animal Products (Non-Vegan)');
+            else if (isUnknown) warnings.push('❓ Vegan Status Unknown');
+        }
+
+        // Check Gluten Free
+        if (preferences.glutenFree) {
+            const hasGluten = allergens.some(a => a.includes('gluten'));
+            if (hasGluten) warnings.push('⚠️ Contains Gluten');
+        }
+
+        setDietWarnings(warnings);
+    };
 
     const { addToHistory } = useHistory();
 
@@ -78,9 +119,12 @@ export default function ProductDetailsScreen() {
 
     const handleShare = async () => {
         if (!product) return;
+        const url = `https://world.openfoodfacts.org/product/${product.code}`;
         try {
             await Share.share({
-                message: `Check out ${product.product_name} on FoodTruth! Nutri-Score: ${product.nutriscore_grade?.toUpperCase()}`,
+                message: `Check out ${product.product_name} on Open Food Facts: ${url}`,
+                url: url, // iOS link preview
+                title: `FoodTruth: ${product.product_name}` // Android title
             });
         } catch (error) {
             console.log(error);
@@ -113,28 +157,40 @@ export default function ProductDetailsScreen() {
     const healthScore = product.nutriscore_grade?.toLowerCase() || '?';
 
     return (
-        <ScreenLayout padding="none" edges={['top']}>
+        <ScreenLayout padding="none" edges={['top']} scrollable={false}>
             {/* Sticky Header Actions */}
-            <View style={[styles.headerActions, { backgroundColor: isDark ? '#18181B' : '#FFFFFF' }]}>
-                <Button
-                    title=""
-                    icon={<Ionicons name="arrow-back" size={24} color={themeColors.colors.foreground} />}
+            {/* Sticky Header Actions */}
+            <View style={[styles.headerActions, { backgroundColor: 'transparent' }]}>
+                <Pressable
                     onPress={() => router.back()}
-                    variant="ghost"
-                    style={[styles.actionButton, { backgroundColor: isDark ? 'rgba(39,39,42,0.8)' : 'rgba(255,255,255,0.8)' }]}
-                />
-                <Button
-                    title=""
-                    icon={<Ionicons name="share-outline" size={24} color={themeColors.colors.foreground} />}
+                    style={({ pressed }) => [
+                        styles.actionButton,
+                        {
+                            backgroundColor: isDark ? 'rgba(24,24,27,0.5)' : 'rgba(255,255,255,0.8)',
+                            opacity: pressed ? 0.8 : 1
+                        }
+                    ]}
+                >
+                    <Ionicons name="arrow-back" size={24} color={isDark ? '#FFFFFF' : '#18181B'} />
+                </Pressable>
+
+                <Pressable
                     onPress={handleShare}
-                    variant="ghost"
-                    style={[styles.actionButton, { backgroundColor: isDark ? 'rgba(39,39,42,0.8)' : 'rgba(255,255,255,0.8)' }]}
-                />
+                    style={({ pressed }) => [
+                        styles.actionButton,
+                        {
+                            backgroundColor: isDark ? 'rgba(24,24,27,0.5)' : 'rgba(255,255,255,0.8)',
+                            opacity: pressed ? 0.8 : 1
+                        }
+                    ]}
+                >
+                    <Ionicons name="share-outline" size={24} color={isDark ? '#FFFFFF' : '#18181B'} />
+                </Pressable>
             </View>
 
             <ScrollView>
                 {/* ===== HEADER SECTION ===== */}
-                <View style={[styles.headerSection, { backgroundColor: isDark ? '#18181B' : '#FFFFFF' }]}>
+                <View style={[styles.headerSection, { backgroundColor: isDark ? '#18181B' : '#FFFFFF', paddingTop: 80 }]}>
                     <View style={styles.productHeader}>
                         <Image
                             source={{ uri: product.image_url }}
@@ -148,6 +204,37 @@ export default function ProductDetailsScreen() {
                             {product.brands}
                         </Body>
                         <Caption style={styles.barcodeText}>Barcode: {product.code}</Caption>
+
+                        {/* Dietary Warnings */}
+                        {dietWarnings.length > 0 && (
+                            <View style={{ width: '100%', marginTop: 16 }}>
+                                {dietWarnings.map((warning, index) => (
+                                    <View
+                                        key={index}
+                                        style={{
+                                            backgroundColor: warning.includes('❓') ? '#FEF9C3' : '#FEE2E2', // Yellow or Red
+                                            padding: 12,
+                                            borderRadius: 12,
+                                            marginBottom: 8,
+                                            flexDirection: 'row',
+                                            alignItems: 'center',
+                                            borderWidth: 1,
+                                            borderColor: warning.includes('❓') ? '#FACC15' : '#EF4444'
+                                        }}
+                                    >
+                                        <Ionicons
+                                            name={warning.includes('❓') ? "help-circle" : "warning"}
+                                            size={24}
+                                            color={warning.includes('❓') ? '#854D0E' : '#B91C1C'}
+                                            style={{ marginRight: 8 }}
+                                        />
+                                        <BodyBold style={{ color: warning.includes('❓') ? '#854D0E' : '#B91C1C', flex: 1 }}>
+                                            {warning}
+                                        </BodyBold>
+                                    </View>
+                                ))}
+                            </View>
+                        )}
                     </View>
 
                     {/* Primary Scores Row */}
@@ -168,7 +255,7 @@ export default function ProductDetailsScreen() {
                     {/* Secondary Metrics Grid */}
                     <View style={styles.metricsGrid}>
                         <View style={[styles.metricCard, { backgroundColor: isDark ? 'rgba(39,39,42,0.5)' : '#FAFAFA', borderColor: isDark ? '#27272A' : '#F4F4F5' }]}>
-                            <Ionicons name="leaf" size={20} color={['a', 'b'].includes(product.ecoscore_grade || '') ? theme.colors.natural : theme.colors.caution} />
+                            <MaterialCommunityIcons name="leaf-circle" size={24} color={['a', 'b'].includes(product.ecoscore_grade || '') ? theme.colors.natural : theme.colors.caution} />
                             <BodyBold style={styles.metricValue}>
                                 {product.ecoscore_grade && product.ecoscore_grade !== 'not-applicable'
                                     ? `Eco ${product.ecoscore_grade.toUpperCase()}`
@@ -208,11 +295,40 @@ export default function ProductDetailsScreen() {
                     {/* Ingredients List */}
                     <Card variant="flat" padding="lg" style={styles.ingredientsCard}>
                         <H3 style={[styles.sectionTitle, { color: isDark ? '#E5E7EB' : '#27272A' }]}>
-                            Ingredients ({product.ingredients?.length || 'N/A'})
+                            Ingredientes ({product.ingredients?.length || 'N/A'})
                         </H3>
-                        <Body style={styles.ingredientsText}>
-                            {product.ingredients_text || 'No ingredient data available.'}
-                        </Body>
+                        <View style={{ marginTop: 12, gap: 8 }}>
+                            {product.ingredients_text ? (
+                                product.ingredients_text.split(',').map((ingredient, index) => (
+                                    <View
+                                        key={index}
+                                        style={{
+                                            flexDirection: 'row',
+                                            alignItems: 'center', // Center vertically
+                                            backgroundColor: isDark ? 'rgba(39,39,42,0.5)' : '#F5F5F4', // Subtle bg
+                                            paddingVertical: 12,
+                                            paddingHorizontal: 16,
+                                            borderRadius: 12,
+                                        }}
+                                    >
+                                        <View style={{
+                                            width: 8,
+                                            height: 8,
+                                            borderRadius: 4,
+                                            backgroundColor: theme.colors.primary,
+                                            marginRight: 12
+                                        }} />
+                                        <Body style={[styles.ingredientsText, { flex: 1, fontSize: 15, lineHeight: 22 }]}>
+                                            {ingredient.trim().charAt(0).toUpperCase() + ingredient.trim().slice(1)}
+                                        </Body>
+                                    </View>
+                                ))
+                            ) : (
+                                <Body style={styles.ingredientsText}>
+                                    No ingredient data available.
+                                </Body>
+                            )}
+                        </View>
                     </Card>
 
                     <AllergensDisplay
@@ -260,7 +376,7 @@ export default function ProductDetailsScreen() {
                     </View>
                 </View>
             </ScrollView>
-        </ScreenLayout>
+        </ScreenLayout >
     );
 }
 
@@ -298,11 +414,13 @@ const styles = StyleSheet.create({
         marginBottom: 16,
     },
     headerActions: {
-        width: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: -80,
-        zIndex: 50,
+        zIndex: 100,
         marginTop: 40,
         paddingHorizontal: 16,
     },

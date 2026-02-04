@@ -9,8 +9,12 @@ interface ProductBadgeProps {
     size?: number;
 }
 
+import { useTheme } from '../../providers/ThemeProvider';
+
 export function ProductBadge({ grade, size = 64 }: ProductBadgeProps) {
+    const { theme: themeColors, isDark } = useTheme();
     const cleanGrade = grade?.toLowerCase() || '?';
+    const isUnknown = ['?', 'unknown', 'undefined', 'null', ''].includes(cleanGrade);
 
     const getColor = (g: string) => {
         if (['a', 'b'].includes(g)) return theme.colors.primary; // Sage
@@ -20,29 +24,31 @@ export function ProductBadge({ grade, size = 64 }: ProductBadgeProps) {
     };
 
     const color = getColor(cleanGrade);
+    const borderColor = isUnknown ? (isDark ? '#52525B' : '#D4D4D8') : 'rgba(255,255,255,0.2)';
+    const textColor = isUnknown ? (isDark ? '#71717A' : '#A1A1AA') : 'white';
 
-    // Hexagon points calculation
-    // A regular hexagon's points can be calculated or hardcoded for a unit size and scaled.
-    // For simplicity in React Native SVG, we'll use a standard path.
-    // 0,25 50,0 100,25 100,75 50,100 0,75
-
+    // Nutri-Score style: Rounded Rectangle
     return (
         <View style={[styles.container, { width: size, height: size }]}>
-            <View style={StyleSheet.absoluteFill}>
-                <Svg height="100%" width="100%" viewBox="0 0 100 100">
-                    <Polygon
-                        points="50,0 95,25 95,75 50,100 5,75 5,25"
-                        fill={color}
-                        stroke="rgba(255,255,255,0.2)"
-                        strokeWidth="2"
-                    />
-                </Svg>
-            </View>
+            <View style={[
+                StyleSheet.absoluteFill,
+                styles.badgeBackground,
+                {
+                    backgroundColor: isUnknown ? 'transparent' : color,
+                    borderColor: borderColor,
+                    borderStyle: isUnknown ? 'dashed' : 'solid',
+                    borderWidth: isUnknown ? 2 : 2,
+                }
+            ]} />
 
-            {/* Inner Glow / Shadow effect via opacity layers if needed, or just text */}
             <View style={styles.content}>
-                <H1 style={{ color: 'white', marginBottom: 0, fontSize: size * 0.5 }}>
-                    {cleanGrade.toUpperCase()}
+                <H1 style={{
+                    color: textColor,
+                    marginBottom: 0,
+                    fontSize: size * 0.6,
+                    lineHeight: size * 0.7
+                }}>
+                    {isUnknown ? '?' : cleanGrade.toUpperCase()}
                 </H1>
             </View>
         </View>
@@ -58,6 +64,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.2,
         shadowRadius: 8,
         elevation: 5,
+    },
+    badgeBackground: {
+        borderRadius: 16, // Squircle look
+        borderWidth: 2,
+        borderColor: 'rgba(255,255,255,0.2)',
     },
     content: {
         justifyContent: 'center',

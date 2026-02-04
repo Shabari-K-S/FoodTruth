@@ -50,9 +50,10 @@ export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
             ]}>
                 {nutrients.map((nutrient, index) => {
                     const level = levels[nutrient.key as keyof typeof levels];
-                    if (!level) return null;
+                    const config = level ? LEVEL_CONFIG[level] : null;
 
-                    const config = LEVEL_CONFIG[level];
+                    // Only skip if we have no value AND no level (unlikely but safe)
+                    if (nutrient.value === undefined && !level) return null;
 
                     return (
                         <View
@@ -67,9 +68,9 @@ export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
                         >
                             <View style={styles.leftContent}>
                                 <Ionicons
-                                    name={config.icon as any}
+                                    name={(config?.icon || 'help-circle') as any}
                                     size={20}
-                                    color={config.color}
+                                    color={config?.color || theme.colors.muted}
                                 />
                                 <Body style={[styles.label, { color: isDark ? '#D4D4D8' : '#3F3F46' }]}>
                                     {nutrient.label}
@@ -81,11 +82,13 @@ export function NutrientLevels({ levels, nutriments }: NutrientLevelsProps) {
                                         {nutrient.value.toFixed(1)}{nutrient.unit}
                                     </Caption>
                                 )}
-                                <View style={[styles.badge, { backgroundColor: config.color + '20' }]}>
-                                    <Caption style={[styles.badgeText, { color: config.color }]}>
-                                        {config.text}
-                                    </Caption>
-                                </View>
+                                {config && (
+                                    <View style={[styles.badge, { backgroundColor: config.color + '20' }]}>
+                                        <Caption style={[styles.badgeText, { color: config.color }]}>
+                                            {config.text}
+                                        </Caption>
+                                    </View>
+                                )}
                             </View>
                         </View>
                     );

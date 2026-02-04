@@ -9,6 +9,12 @@ export default function TabLayout() {
             screenOptions={{
                 headerShown: false,
                 // Hide default tab bar mechanisms since we use floating bar
+                tabBarStyle: {
+                    position: 'absolute',
+                    borderTopWidth: 0,
+                    elevation: 0,
+                    backgroundColor: 'transparent',
+                },
             }}
         >
             <Tabs.Screen name="index" options={{ title: 'Home' }} />

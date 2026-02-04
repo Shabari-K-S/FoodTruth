@@ -37,7 +37,7 @@ export function ScreenLayout({
                     contentContainerStyle={scrollable ? { paddingBottom: 120 } : undefined}
                     {...props}
                 >
-                    <View style={{ paddingHorizontal }}>
+                    <View style={{ paddingHorizontal, flex: 1 }}>
                         {children}
                     </View>
                 </ContentWrapper>

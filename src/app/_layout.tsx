@@ -3,6 +3,7 @@ import { ThemeProvider } from '../providers/ThemeProvider';
 import { QueryProvider } from '../providers/QueryProvider';
 import { AuthProvider } from '../providers/AuthProvider';
 import { HistoryProvider } from '../providers/HistoryProvider';
+import { PreferencesProvider } from '../providers/PreferencesProvider';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
 import * as SplashScreen from 'expo-splash-screen';
@@ -30,12 +31,14 @@ export default function RootLayout() {
         <QueryProvider>
             <AuthProvider>
                 <HistoryProvider>
-                    <ThemeProvider>
-                        <StatusBar style="auto" />
-                        <Stack screenOptions={{ headerShown: false }}>
-                            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-                        </Stack>
-                    </ThemeProvider>
+                    <PreferencesProvider>
+                        <ThemeProvider>
+                            <StatusBar style="auto" />
+                            <Stack screenOptions={{ headerShown: false }}>
+                                <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+                            </Stack>
+                        </ThemeProvider>
+                    </PreferencesProvider>
                 </HistoryProvider>
             </AuthProvider>
         </QueryProvider>

@@ -67,7 +67,7 @@ export function ExtendedNutrition({ nutriments, nutrientLevels }: ExtendedNutrit
                 <DetailedRow label="Proteins" value={nutriments.proteins_100g} unit="g" isDark={isDark} />
                 <DetailedRow label="Salt" value={nutriments.salt_100g} unit="g" level={nutrientLevels?.salt} isDark={isDark} />
 
-                {(nutriments.vitamin_a_100g || nutriments.vitamin_c_100g || nutriments.calcium_100g || nutriments.iron_100g) && (
+                {(nutriments.vitamin_a_100g || nutriments.vitamin_c_100g || nutriments.calcium_100g || nutriments.iron_100g || nutriments.vitamin_d_100g || nutriments.potassium_100g) && (
                     <View style={[styles.vitaminsSection, { borderTopColor: isDark ? '#27272A' : '#E5E7EB' }]}>
                         <Caption style={styles.vitaminsTitle}>Vitamins & Minerals</Caption>
                         <DetailedRow label="Vitamin A" value={nutriments.vitamin_a_100g} unit="µg" isDark={isDark} />

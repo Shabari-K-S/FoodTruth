@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     StyleSheet,
@@ -13,8 +13,17 @@ import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { FloatingNavBar } from '../../components/ui/FloatingNavBar';
-import { H1, H2, Body, Caption } from '../../components/ui/Typography';
+import Animated, {
+    FadeInDown,
+    ZoomIn,
+    useSharedValue,
+    useAnimatedStyle,
+    withRepeat,
+    withTiming,
+    withSequence,
+    Easing as ReanimatedEasing
+} from 'react-native-reanimated';
+import { H1, Body, Caption } from '../../components/ui/Typography';
 import { useTheme } from '../../providers/ThemeProvider';
 
 export default function HomeScreen() {
@@ -23,6 +32,22 @@ export default function HomeScreen() {
     const { theme, isDark } = useTheme();
 
     const [eanInput, setEanInput] = useState('');
+    const scale = useSharedValue(1);
+
+    useEffect(() => {
+        scale.value = withRepeat(
+            withSequence(
+                withTiming(1.05, { duration: 1500, easing: ReanimatedEasing.inOut(ReanimatedEasing.ease) }),
+                withTiming(1, { duration: 1500, easing: ReanimatedEasing.inOut(ReanimatedEasing.ease) })
+            ),
+            -1,
+            true
+        );
+    }, []);
+
+    const animatedscanButtonStyle = useAnimatedStyle(() => ({
+        transform: [{ scale: scale.value }],
+    }));
 
     const handleScanPress = () => {
         router.push('/scan');
@@ -39,30 +64,18 @@ export default function HomeScreen() {
 
     const isValidEan = eanInput.trim() && /^\d{8,13}$/.test(eanInput.trim());
 
-    // Dynamic colors based on theme
-    const colors = {
-        bg: theme.colors.canvas,
-        textPrimary: theme.colors.foreground,
-        textSecondary: theme.colors.muted,
-        textMuted: isDark ? '#71717A' : '#A1A1AA', // Keep variations if needed or map to theme
-        border: theme.colors.border,
-        inputBg: theme.colors.surface,
-        placeholder: isDark ? '#52525B' : '#A1A1AA',
-        divider: theme.colors.border,
-    };
-
     return (
         <KeyboardAvoidingView
-            style={[styles.container, { backgroundColor: colors.bg }]}
+            style={[styles.container, { backgroundColor: theme.colors.canvas }]}
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             keyboardVerticalOffset={0}
         >
-            <View style={[styles.container, { backgroundColor: colors.bg }]}>
-                {/* Background Gradient - Adjusted for dark mode */}
+            <View style={[styles.container, { backgroundColor: theme.colors.canvas }]}>
+                {/* Background Gradient */}
                 <LinearGradient
                     colors={isDark
-                        ? ['#0D948830', '#05966920', '#DC262620']
-                        : ['#0D948820', '#F59E0B10', '#EF444410']
+                        ? [theme.colors.primary + '30', theme.colors.primaryDark + '20', theme.colors.danger + '20']
+                        : [theme.colors.primary + '20', theme.colors.caution + '10', theme.colors.danger + '10']
                     }
                     start={{ x: 0, y: 0 }}
                     end={{ x: 1, y: 1 }}
@@ -76,62 +89,76 @@ export default function HomeScreen() {
                     showsVerticalScrollIndicator={false}
                 >
                     {/* Header */}
-                    <View style={styles.header}>
-                        <Caption style={[styles.brandLabel, { color: colors.textSecondary }]}>
+                    <Animated.View
+                        entering={FadeInDown.delay(300).springify()}
+                        style={styles.header}
+                    >
+                        <Caption style={[styles.brandLabel, { color: theme.colors.muted }]}>
                             FoodTruth
                         </Caption>
-                        <H1 style={[styles.title, { color: colors.textPrimary }]}>
+                        <H1 style={[styles.title, { color: theme.colors.foreground }]}>
                             Scan & Discover
                         </H1>
-                        <Body style={[styles.subtitle, { color: colors.textSecondary }]}>
+                        <Body style={[styles.subtitle, { color: theme.colors.muted }]}>
                             Uncover what's really in your food
                         </Body>
-                    </View>
+                    </Animated.View>
 
                     {/* Central Scan Button */}
-                    <View style={styles.scanContainer}>
+                    <Animated.View
+                        entering={ZoomIn.delay(500).springify()}
+                        style={styles.scanContainer}
+                    >
                         <TouchableOpacity
                             onPress={handleScanPress}
                             activeOpacity={0.8}
-                            style={styles.scanButton}
                         >
-                            <LinearGradient
-                                colors={[theme.colors.primary, '#059669']}
-                                style={styles.scanButtonGradient}
-                            >
-                                <Ionicons name="scan" size={48} color="white" />
-                                <Body style={styles.scanButtonText}>Scan Barcode</Body>
-                            </LinearGradient>
+                            <Animated.View style={[
+                                styles.scanButton,
+                                animatedscanButtonStyle,
+                                { shadowColor: theme.colors.primary }
+                            ]}>
+                                <LinearGradient
+                                    colors={[theme.colors.primary, theme.colors.primaryDark]}
+                                    style={styles.scanButtonGradient}
+                                >
+                                    <Ionicons name="scan" size={48} color="white" />
+                                    <Body style={styles.scanButtonText}>Scan Barcode</Body>
+                                </LinearGradient>
+                            </Animated.View>
                         </TouchableOpacity>
 
-                        <Caption style={[styles.hint, { color: colors.textSecondary }]}>
+                        <Caption style={[styles.hint, { color: theme.colors.muted }]}>
                             Point your camera at any product barcode
                         </Caption>
-                    </View>
+                    </Animated.View>
 
                     {/* Manual EAN Input */}
-                    <View style={styles.inputContainer}>
+                    <Animated.View
+                        entering={FadeInDown.delay(700).springify()}
+                        style={styles.inputContainer}
+                    >
                         <View style={styles.dividerRow}>
-                            <View style={[styles.dividerLine, { backgroundColor: colors.divider }]} />
-                            <Caption style={[styles.dividerText, { color: colors.textSecondary }]}>
+                            <View style={[styles.dividerLine, { backgroundColor: theme.colors.border }]} />
+                            <Caption style={[styles.dividerText, { color: theme.colors.muted }]}>
                                 or enter manually
                             </Caption>
-                            <View style={[styles.dividerLine, { backgroundColor: colors.divider }]} />
+                            <View style={[styles.dividerLine, { backgroundColor: theme.colors.border }]} />
                         </View>
 
                         <View style={[
                             styles.inputRow,
                             {
-                                backgroundColor: colors.inputBg,
-                                borderColor: colors.border,
+                                backgroundColor: theme.colors.surface,
+                                borderColor: theme.colors.border,
                                 shadowColor: '#000',
                                 shadowOpacity: isDark ? 0.3 : 0.05,
                             }
                         ]}>
                             <TextInput
-                                style={[styles.input, { color: colors.textPrimary }]}
+                                style={[styles.input, { color: theme.colors.foreground }]}
                                 placeholder="Enter EAN / Barcode (8-13 digits)"
-                                placeholderTextColor={colors.placeholder}
+                                placeholderTextColor={theme.colors.muted}
                                 value={eanInput}
                                 onChangeText={setEanInput}
                                 keyboardType="number-pad"
@@ -147,14 +174,12 @@ export default function HomeScreen() {
                                 <Ionicons
                                     name="arrow-forward-circle"
                                     size={44}
-                                    color={isValidEan ? theme.colors.primary : isDark ? '#3F3F46' : '#D4D4D8'}
+                                    color={isValidEan ? theme.colors.primary : theme.colors.borderDark}
                                 />
                             </TouchableOpacity>
                         </View>
-                    </View>
+                    </Animated.View>
                 </ScrollView>
-
-                <FloatingNavBar />
             </View>
         </KeyboardAvoidingView>
     );
@@ -197,7 +222,6 @@ const styles = StyleSheet.create({
         width: 180,
         height: 180,
         borderRadius: 90,
-        shadowColor: '#10B981',
         shadowOffset: { width: 0, height: 8 },
         shadowOpacity: 0.4,
         shadowRadius: 20,

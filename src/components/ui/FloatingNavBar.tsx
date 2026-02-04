@@ -1,14 +1,68 @@
 import React from 'react';
 import {
     View,
-    TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    Pressable
 } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, usePathname } from 'expo-router';
 import * as Haptics from 'expo-haptics';
+import Animated, { useAnimatedStyle, useSharedValue, withSpring } from 'react-native-reanimated';
 import { useTheme } from '../../providers/ThemeProvider';
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+const NavBarItem = ({
+    iconName,
+    isActive,
+    onPress,
+    isCenter = false
+}: {
+    iconName: keyof typeof Ionicons.glyphMap;
+    isActive: boolean;
+    onPress: () => void;
+    isCenter?: boolean;
+}) => {
+    const { theme, isDark } = useTheme();
+    const scale = useSharedValue(1);
+
+    const animatedStyle = useAnimatedStyle(() => ({
+        transform: [{ scale: scale.value }],
+    }));
+
+    const handlePressIn = () => {
+        scale.value = withSpring(0.8, { damping: 10, stiffness: 300 });
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    };
+
+    const handlePressOut = () => {
+        scale.value = withSpring(1, { damping: 10, stiffness: 300 });
+    };
+
+    const colors = {
+        inactiveIcon: isDark ? '#A1A1AA' : theme.colors.muted,
+    };
+
+    return (
+        <AnimatedPressable
+            onPress={onPress}
+            onPressIn={handlePressIn}
+            onPressOut={handlePressOut}
+            style={[
+                isCenter ? styles.centerTabItem : styles.tabItem,
+                animatedStyle
+            ]}
+        >
+            <Ionicons
+                name={isActive ? iconName : (iconName + '-outline') as any}
+                size={24}
+                color={isActive ? theme.colors.primary : colors.inactiveIcon}
+            />
+            {isActive && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
+        </AnimatedPressable>
+    );
+};
 
 export function FloatingNavBar() {
     const router = useRouter();
@@ -16,7 +70,6 @@ export function FloatingNavBar() {
     const { theme, isDark } = useTheme();
 
     const handlePress = (route: string) => {
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
         router.push(route as any);
     };
 
@@ -25,12 +78,9 @@ export function FloatingNavBar() {
         return pathname.includes(route);
     };
 
-    // Dynamic colors based on theme
     const colors = {
-        blurTint: isDark ? 'dark' : 'default', // 'default' is light tint
         blurBg: isDark ? 'rgba(0, 0, 0, 0.7)' : 'rgba(255, 255, 255, 0.8)',
         shadowOpacity: isDark ? 0.4 : 0.1,
-        inactiveIcon: isDark ? '#A1A1AA' : theme.colors.muted, // zinc-400
     };
 
     return (
@@ -43,47 +93,24 @@ export function FloatingNavBar() {
                 style={[styles.blurContainer, { backgroundColor: colors.blurBg }]}
             >
                 <View style={styles.content}>
-                    {/* History */}
-                    <TouchableOpacity
+                    <NavBarItem
+                        iconName="time"
+                        isActive={isActive('/history')}
                         onPress={() => handlePress('/history')}
-                        style={styles.tabItem}
-                        activeOpacity={0.7}
-                    >
-                        <Ionicons
-                            name={isActive('/history') ? "time" : "time-outline"}
-                            size={24}
-                            color={isActive('/history') ? theme.colors.primary : colors.inactiveIcon}
-                        />
-                        {isActive('/history') && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
-                    </TouchableOpacity>
+                    />
 
-                    {/* Home (Center) */}
-                    <TouchableOpacity
+                    <NavBarItem
+                        iconName="home"
+                        isActive={isActive('/')}
                         onPress={() => handlePress('/')}
-                        style={styles.centerTabItem}
-                        activeOpacity={0.7}
-                    >
-                        <Ionicons
-                            name={isActive('/') ? "home" : "home-outline"}
-                            size={24}
-                            color={isActive('/') ? theme.colors.primary : colors.inactiveIcon}
-                        />
-                        {isActive('/') && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
-                    </TouchableOpacity>
+                        isCenter
+                    />
 
-                    {/* Profile/Settings */}
-                    <TouchableOpacity
+                    <NavBarItem
+                        iconName="person"
+                        isActive={isActive('/settings')}
                         onPress={() => handlePress('/settings')}
-                        style={styles.tabItem}
-                        activeOpacity={0.7}
-                    >
-                        <Ionicons
-                            name={isActive('/settings') ? "person" : "person-outline"}
-                            size={24}
-                            color={isActive('/settings') ? theme.colors.primary : colors.inactiveIcon}
-                        />
-                        {isActive('/settings') && <View style={[styles.activeDot, { backgroundColor: theme.colors.primary }]} />}
-                    </TouchableOpacity>
+                    />
                 </View>
             </BlurView>
         </View>
